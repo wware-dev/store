@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+    <name>ECGikenJp_JapanSpecific</name>
+    <version>0.9.22</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/BSD-2-Clause">New BSD</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension regists Japan Specific informations.&#xD;
+&#x672C;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x65E5;&#x672C;&#x56FA;&#x6709;&#x306E;&#x60C5;&#x5831;&#x3092;Magento&#x306B;&#x767B;&#x9332;&#x3057;&#x307E;&#x3059;&#x3002;</summary>
+    <description>This extension used only Japanese site.&#xD;
+Magento do not have Japanese information.&#xD;
+e.g. There are prefecture ,taxes, time zone and currency informations.&#xD;
+&#xD;
+However, if you installed this extension, your Magento could use Japanese prefecture and taxes informations.&#xD;
+EC&#x6280;&#x7814;&#x88FD;&#x306E;&#x5730;&#x57DF;&#x5316;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3002;&#xD;
+&#x4ED6;&#x306E;&#x65E5;&#x672C;&#x8A9E;&#x95A2;&#x9023;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x30D9;&#x30FC;&#x30B9;&#x3068;&#x306A;&#x308B;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;Magento &#x3092;&#x65E5;&#x672C;&#x3067;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x969B;&#x3001;&#x307B;&#x307C;&#x9593;&#x9055;&#x3044;&#x306A;&#x304F;&#x5FC5;&#x8981;&#x3068;&#x306A;&#x308B;&#x6D88;&#x8CBB;&#x7A0E;&#x3084;&#x90FD;&#x9053;&#x5E9C;&#x770C;&#x3001;&#x30BF;&#x30A4;&#x30E0;&#x30BE;&#x30FC;&#x30F3;&#x3084;&#x901A;&#x8CA8;&#x60C5;&#x5831;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</description>
+    <notes>mjv $Revision: 344 $</notes>
+    <authors><author><name>ECGiken</name><user>ecgiken</user><email>info@ec-giken.com</email></author></authors>
+    <date>2012-12-01</date>
+    <time>05:30:44</time>
+    <contents><target name="magecommunity"><dir name="ECGikenJp"><dir name="JapanSpecific"><dir name="Helper"><file name="Data.php" hash="f09d6370797fc77388685ad84c72bbef"/></dir><dir name="Model"><dir name="Resource"><file name="Setup.php" hash="0f36c3daa03d97c5170b4999d11caa99"/></dir></dir><dir name="etc"><file name="config.xml" hash="1efb6655e9856653323c1de5d355749d"/></dir><dir name="sql"><dir name="japanspecific_setup"><file name="install-0.1.0.php" hash="30465db9af2f21a8aedf3b857427cd48"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ECGikenJp_JapanSpecific.xml" hash="a4db98efbb2036318c6940500f02fb3a"/></dir></target><target name="magelocale"><dir><dir name="ja_JP"><file name="ECGikenJp_JapanSpecific.csv" hash="8f627e8a7baf531f43e04fd31dd7e8a5"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.17</min><max>6.0.0</max></php><package><name>ECGikenJp_L10N</name><channel>community</channel><min>0.9.22</min><max></max></package></required></dependencies>
+</package>
