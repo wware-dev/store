@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+    <name>ECGikenJp_TakaoFont</name>
+    <version>3.2.1.3</version>
+    <stability>stable</stability>
+    <license uri="http://ossipedia.ipa.go.jp/ipafont/index.html#LicenseEng">IPA Font License Agreement v1.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>TakaoFonts downloader for Japanese PDF file creation.&#xD;
+https://launchpad.net/takao-fonts&#xD;
+PDF&#x5370;&#x5237;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x65E5;&#x672C;&#x8A9E;&#x30D5;&#x30A9;&#x30F3;&#x30C8;&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3057;&#x3066;&#x6240;&#x5B9A;&#x306E;&#x5834;&#x6240;&#x306B;&#x5C55;&#x958B;&#x3059;&#x308B;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;&#xD;
+https://launchpad.net/takao-fonts &#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</summary>
+    <description>TakaoFonts downloader for Japanese PDF file creation.&#xD;
+https://launchpad.net/takao-fonts&#xD;
+PDF&#x5370;&#x5237;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x65E5;&#x672C;&#x8A9E;&#x30D5;&#x30A9;&#x30F3;&#x30C8;&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3057;&#x3066;&#x6240;&#x5B9A;&#x306E;&#x5834;&#x6240;&#x306B;&#x5C55;&#x958B;&#x3059;&#x308B;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;&#xD;
+https://launchpad.net/takao-fonts &#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</description>
+    <notes>003.02.01 downloader</notes>
+    <authors><author><name>ECGiken</name><user>ecgiken</user><email>info@ec-giken.com</email></author></authors>
+    <date>2012-02-16</date>
+    <time>11:21:52</time>
+    <contents><target name="magecommunity"><dir name="ECGikenJp"><dir name="TakaoFont"><dir name="Model"><dir name="Resource"><file name="Setup.php" hash="940a383a73bf343832d99d585a7477d9"/></dir></dir><dir name="etc"><file name="config.xml" hash="db2210dece8015a8709b19db97ee1a33"/></dir><dir name="sql"><dir name="ecgjptakao_setup"><file name="install-0.1.0.php" hash="fdd5fbb6c798500197664f9d820d39ed"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ECGikenJp_TakaoFont.xml" hash="e023e52d3c7d3c964c43543b166dcd63"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

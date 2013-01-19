@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+    <name>ECGikenJp_I18n</name>
+    <version>0.9.22</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/OSL-3.0">OSL-3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>ECGiken produced internationalization package.&#xD;
+This extension is base of other ECGikenJp_* packages.  If you want to use these extensions, this extension will be required.&#xD;
+EC&#x6280;&#x7814;&#x88FD;&#x306E;&#x56FD;&#x969B;&#x5316;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3002;&#xD;
+&#x4ED6;&#x306E;&#x65E5;&#x672C;&#x8A9E;&#x95A2;&#x9023;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x30D9;&#x30FC;&#x30B9;&#x3068;&#x306A;&#x308B;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</summary>
+    <description>ECGiken produced internationalization package.&#xD;
+This extension is base of other ECGikenJp_* packages.  If you want to use these extensions, this extension will be required.&#xD;
+EC&#x6280;&#x7814;&#x88FD;&#x306E;&#x56FD;&#x969B;&#x5316;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3002;&#xD;
+&#x4ED6;&#x306E;&#x65E5;&#x672C;&#x8A9E;&#x95A2;&#x9023;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x30D9;&#x30FC;&#x30B9;&#x3068;&#x306A;&#x308B;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</description>
+    <notes>mjv $Revision: 344 $</notes>
+    <authors><author><name>ECGiken</name><user>ecgiken</user><email>info@ec-giken.com</email></author></authors>
+    <date>2012-12-01</date>
+    <time>05:30:30</time>
+    <contents><target name="magecommunity"><dir name="ECGikenJp"><dir name="I18n"><dir name="Model"><dir name="Customer"><file name="Address.php" hash="a25d0334cdfa22fe3f04c56d53b04f72"/><file name="Customer.php" hash="3ddb55fc71ec75ce2d56b2e1062dd45f"/><dir name="Resource"><dir name="Customer"><file name="Collection.php" hash="67327172bd6bb9c4ef47654f3c7c343a"/></dir></dir></dir><dir name="Design"><file name="Package.php" hash="5d8869835c56448c17950eaaee56b2e3"/></dir><dir name="Sales"><dir name="Order"><file name="Address.php" hash="f2adb73270f916a06f23ee3d38b2c6a6"/></dir><file name="Order.php" hash="a2e90ab78d590357c78d8daaeb8e70f3"/><dir name="Quote"><file name="Address.php" hash="9b236a25c82e35bea018e8ac4fd4e3c9"/></dir><dir name="Resource"><dir name="Order"><file name="Creditmemo.php" hash="cc9ceeff2c5830ab11e1663567d70963"/><file name="Invoice.php" hash="ee33c09b6afc313aca3e2a7585a4b85e"/><file name="Shipment.php" hash="7c6f8b3c2bf52221de8b710d37dbfa90"/></dir><file name="Order.php" hash="62bcdcdc3344e3d80279f363b5e44720"/></dir></dir></dir><dir name="etc"><file name="config.xml" hash="d4df817a6d2c406bb1c1276c71e21bf0"/><file name="system.xml" hash="949ea365f133cce99a39df0c4d70e531"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ECGikenJp_I18n.xml" hash="ba03f842d014c4755868a50a7ee2b468"/></dir></target><target name="magelocale"><dir><dir name="en_US"><file name="ECGikenJp_I18n.csv" hash="1efdfd913d5d7449339b2c03d3904261"/></dir><dir name="ja_JP"><file name="ECGikenJp_I18n.csv" hash="b14a24a26cc3a4ae584bb7378ce3abcd"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.17</min><max>6.0.0</max></php><package><name></name><channel>connect.magentocommerce.com/core</channel><min></min><max></max></package></required></dependencies>
+</package>

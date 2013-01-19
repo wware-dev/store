@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+    <name>ECGikenJp_Postcode</name>
+    <version>0.9.22</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/BSD-2-Clause">New BSD</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension enables postal code to address conversion.&#xD;
+&#x90F5;&#x4FBF;&#x756A;&#x53F7;&#x304B;&#x3089;&#x4F4F;&#x6240;&#x60C5;&#x5831;&#x306E;&#x5165;&#x529B;&#x3092;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x884C;&#x306A;&#x3046;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</summary>
+    <description>This extension enables that customers easily fill their addresses.&#xD;
+When customer fills postcode and moves another field, then prefecture, city, address is filled automatically.&#xD;
+&#x90F5;&#x4FBF;&#x756A;&#x53F7;&#x304B;&#x3089;&#x4F4F;&#x6240;&#x60C5;&#x5831;&#x306E;&#x5165;&#x529B;&#x3092;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x884C;&#x306A;&#x3046;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;&#xD;
+&#x90F5;&#x4FBF;&#x756A;&#x53F7;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x3001;&#x4ED6;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3078;&#x79FB;&#x52D5;&#x3059;&#x308B;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x305D;&#x306E;&#x4ED6;&#x306E;&#x4F4F;&#x6240;&#x60C5;&#x5831;&#x306E;&#x5C55;&#x958B;&#x3092;&#x884C;&#x306A;&#x3044;&#x307E;&#x3059;&#x3002;&#xD;
+ECGikenJp_JapanSpecific&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3068;&#x5408;&#x308F;&#x305B;&#x3066;&#x3054;&#x5229;&#x7528;&#x4E0B;&#x3055;&#x3044;&#x3002;</description>
+    <notes>mjv $Revision: 344 $</notes>
+    <authors><author><name>ECGikenJp_Catalog</name><user>ecgiken</user><email>info@ec-giken.com</email></author></authors>
+    <date>2012-12-01</date>
+    <time>05:31:32</time>
+    <contents><target name="magecommunity"><dir name="ECGikenJp"><dir name="Postcode"><dir name="Model"><file name="Code7.php" hash="9a3095a4e740682a519539c752533bd6"/><dir name="Resource"><dir name="Code7"><file name="Collection.php" hash="ccc10df0364c8aecd1f1e61373f0b625"/></dir><file name="Code7.php" hash="0aa10fecf57040862bf16e2e24e7461b"/><file name="Setup.php" hash="ab166be4e2a4cf7dd6574db333223055"/></dir></dir><dir name="controllers"><file name="Code7Controller.php" hash="90bcb6764e9ce86cb86f86b6446e7784"/></dir><dir name="etc"><file name="config.xml" hash="7d599cc378c64e51b73bfddc7f35674b"/></dir><dir name="sql"><dir name="ecgjppostcode_setup"><file name="install-0.1.0.php" hash="55def02af234355f22a739dfda665734"/><file name="jigyosyo.csv" hash="a7dc791691b2b038546441bbbbd902cf"/><file name="ken_all.csv" hash="60da43118bd74fe8470dba8fcfe0b3ad"/><file name="upgrade-0.9.1-0.9.2.php" hash="47daff3f038648e1ed39b6c0f1f7de06"/><file name="upgrade-0.9.17-0.9.18.php" hash="b04e454584b30582e4c93e7ee00a8d5e"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ECGikenJp_Postcode.xml" hash="5ca5ec90fd11073fc19020493a038989"/></dir></target><target name="mage"><dir name="js"><dir name="ecgiken"><dir name="ja"><file name="postcode.js.src" hash="64673e964e8a7fbd3ce29fec75a9993b"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="ecgjp"><file name="postcode.xml" hash="c526abe905e6bedcec16d04a93122171"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="ecgjp"><file name="postcode.xml" hash="c526abe905e6bedcec16d04a93122171"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.17</min><max>6.0.0</max></php><package><name>ECGikenJp_JapanSpecific</name><channel>community</channel><min>0.9.22</min><max></max></package></required></dependencies>
+</package>
