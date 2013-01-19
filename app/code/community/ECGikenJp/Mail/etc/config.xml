@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * ECGikenJp_Mail
+ *
+ * Copyright (c) 2011, EC-GIKEN Inc.
+ * All rights reserved.
+-->
+<config>
+    <modules>
+        <ECGikenJp_Mail>
+            <version>0.9.20</version>
+        </ECGikenJp_Mail>
+    </modules>
+    <global>
+        <models>
+            <ecgjpmail>
+                <class>ECGikenJp_Mail_Model</class>
+            </ecgjpmail>
+            <core>
+                <rewrite>
+                    <email_template>ECGikenJp_Mail_Model_Email_Template</email_template>
+                </rewrite>
+            </core>
+            <newsletter>
+                <rewrite>
+                    <template>ECGikenJp_Mail_Model_Newsletter_Template</template>
+                </rewrite>
+            </newsletter>
+        </models>
+    </global>
+</config>

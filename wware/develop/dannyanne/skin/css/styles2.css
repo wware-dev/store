@@ -1,0 +1,40 @@
+
+
+/* Viewline
+------------*/
+
+#banner {
+	position: relative;
+	width: 1000px;
+	margin:auto;
+}
+#banner #viewline {
+	position: relative;
+	height: 150px;
+	width:1000px;
+	overflow: hidden;
+}
+#banner #left-arrow, #banner #right-arrow {
+	position: absolute;
+	background-image: url(../images/arrows2.png);
+	cursor: pointer;
+	height: 38px;
+	width: 27px;
+	text-align: center;
+	font-size: 18px;
+	color: #fff;
+	left: 0;
+	z-index: 50;
+	background-position: 0 0px;
+}
+#banner #left-arrow:hover, #banner #right-arrow:hover {
+	background-position: 0 -40px;
+}
+#banner #right-arrow {
+	left: auto;
+	right: 0;
+	background-position: -25px 0px;
+}
+#banner #right-arrow:hover {
+	background-position: -25px -40px;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * ECGikenJp_Catalog
+ *
+ * Copyright (c) 2011, EC-GIKEN Inc.
+ * All rights reserved.
+-->
+<config>
+    <modules>
+        <ECGikenJp_Catalog>
+            <version>0.9.20</version>
+        </ECGikenJp_Catalog>
+    </modules>
+    <global>
+        <models>
+            <ecgjpcatalog>
+                <class>ECGikenJp_Catalog_Model</class>
+            </ecgjpcatalog>
+        </models>
+        <resources>
+            <ecgjpcatalog_setup>
+                <setup>
+                    <module>ECGikenJp_Catalog</module>
+                    <class>ECGikenJp_Catalog_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ecgjpcatalog_setup>
+            <ecgjpcatalog_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ecgjpcatalog_write>
+            <ecgjpcatalog_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ecgjpcatalog_read>
+        </resources>
+    </global>
+</config>

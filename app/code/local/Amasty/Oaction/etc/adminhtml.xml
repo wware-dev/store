@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+        <events>
+            <am_grid_massaction_actions>
+                <observers>
+                    <amoaction>
+                        <type>singleton</type>
+                        <class>Amasty_Oaction_Model_Observer</class>
+                        <method>addNewActions</method>
+                    </amoaction>
+                </observers>
+            </am_grid_massaction_actions>
+            
+            <am_grid_massaction_js>
+                <observers>
+                    <amoaction>
+                        <type>singleton</type>
+                        <class>Amasty_Oaction_Model_Observer</class>
+                        <method>modifyJs</method>
+                    </amoaction>
+                </observers>
+            </am_grid_massaction_js>            
+        </events> 
+            
+        <translate>
+            <modules>
+                <Amasty_Oaction>
+                    <files>
+                        <default>Amasty_Oaction.csv</default>
+                    </files>
+                </Amasty_Oaction>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <amoaction translate="title" module="amoaction">
+                                            <title>Mass Order Actions</title>
+                                        </amoaction>
+                                    </children>
+                                </config>
+                            </children>
+                        </system> 
+                     </children>
+                </admin> 
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <amoaction module="Amasty_Oaction">
+                    <file>amoaction.xml</file>
+                </amoaction>
+            </updates>
+        </layout>
+</config>

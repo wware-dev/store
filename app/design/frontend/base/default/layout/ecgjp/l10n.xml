@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="replaceItem">
+                <type>js</type>
+                <name>prototype/validation.js</name>
+                <script>ecgiken/ja/validation.js</script>
+            </action>
+        </reference>
+    </default>
+    <print>
+        <reference name="head">
+            <action method="replaceItem">
+                <type>js</type>
+                <name>prototype/validation.js</name>
+                <script>ecgiken/ja/validation.js</script>
+            </action>
+        </reference>
+    </print>
+
+    <sales_email_order_details>
+        <block type="core/template" template="email/order/details.phtml" />
+    </sales_email_order_details>
+</layout>
