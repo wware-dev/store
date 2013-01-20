@@ -67,7 +67,7 @@ style="page-break-after:always;"
                             width="34%"><?php echo $total['label'].($isLast?$vertSpacing:'') ?></td>
                     <td <?php echo $isLast?'style="border-bottom:1px solid black;"':'' ?>
                             align="right"
-                            width="16%"><?php echo $total['amount_default'].($isLast?$vertSpacing:'') ?></td>
+                            width="16%"><?php echo substr($total['amount_default'], 0, strpos($total['amount_default'], ".")).($isLast?$vertSpacing:'') ?></td>
                 </tr>
                 <?php $counterTotals++ ?>
             <?php endforeach; ?>
@@ -79,7 +79,7 @@ style="page-break-after:always;"
                 <tr>
                     <td width="50%">&nbsp;</td>
                     <td align="right" width="34%"><?php echo ($isFirst?$vertSpacing:'').$bs.$total['label'].$be ?></td>
-                    <td align="right" width="16%"><?php echo ($isFirst?$vertSpacing:'').$bs.$total['amount_default'].$be ?></td>
+                    <td align="right" width="16%"><?php echo ($isFirst?$vertSpacing:'').$bs.substr($total['amount_default'], 0, strpos($total['amount_default'], ".")).$be ?></td>
                 </tr>
                 <?php $counterTotals++ ?>
             <?php endforeach; ?>
