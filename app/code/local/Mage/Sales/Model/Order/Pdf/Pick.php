@@ -25,7 +25,8 @@ class Mage_Sales_Model_Order_Pdf_Pick extends Mage_Sales_Model_Order_Pdf_Aabstra
 		// page title
 		$page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
 		$this->_setFontItalic($page,20);
-		$page->drawText(Mage::helper('sales')->__('Order-combined Pick List'), 31, 800, 'UTF-8');
+//		$page->drawText(Mage::helper('sales')->__('Order-combined Pick List'), 31, 800, 'UTF-8');
+		$page->drawText("ピッキングリスト", 31, 800, 'UTF-8');
 
 		$this->y = 777;
 
@@ -101,7 +102,8 @@ class Mage_Sales_Model_Order_Pdf_Pick extends Mage_Sales_Model_Order_Pdf_Aabstra
 		if($countyn==0){
 			$lineBlock['lines'][] = array(
 			array(
-                            'text'      => "Total quantity",
+//                            'text'      => "Total quantity",
+                            'text'      => "合計点数",
                             'feed'      => 475,
                             'align'     => 'right',
                             'font_size' => 10,
@@ -140,7 +142,8 @@ class Mage_Sales_Model_Order_Pdf_Pick extends Mage_Sales_Model_Order_Pdf_Aabstra
 		$printdate = Mage::getStoreConfig('pickpack_options/messages/pickpack_packprint');
 		if($printdate!=1){
 		$this->_setFontBold($page);
-        $page->drawText(Mage::helper('sales')->__('Printed:').'   '.date('l jS F Y h:i:s A'), 210, 18, 'UTF-8');
+//        $page->drawText(Mage::helper('sales')->__('Printed:').'   '.date('Y/m/d H:i:s A'), 210, 18, 'UTF-8');
+        $page->drawText("印刷日：   ".date('Y/m/d H:i:s A'), 210, 18, 'UTF-8');
 		}
         
 		$this->_afterGetPdf();

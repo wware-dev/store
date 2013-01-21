@@ -783,35 +783,35 @@ protected function _setFont($object, $style = 'regular', $size = 10, $font = 'he
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arial.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'italic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'ariali.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bold' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arialbd.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bolditalic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arialbi.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				default:
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arial.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 			}
 		break;
@@ -823,35 +823,35 @@ protected function _setFont($object, $style = 'regular', $size = 10, $font = 'he
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_COURIER);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'cour.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'italic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_COURIER_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'couri.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bold' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_COURIER_BOLD);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'courbd.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bolditalic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_COURIER_BOLD_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'courbi.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				default:
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_COURIER);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'cour.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 			}
 		break;
@@ -863,35 +863,35 @@ protected function _setFont($object, $style = 'regular', $size = 10, $font = 'he
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'times.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'italic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'timesi.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bold' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES_BOLD);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'timesbd.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bolditalic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES_BOLD_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'timesbi.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				default:
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'times.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 			}
 		break;
@@ -903,35 +903,35 @@ protected function _setFont($object, $style = 'regular', $size = 10, $font = 'he
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arial.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'italic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'ariali.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bold' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arialbd.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				case 'bolditalic' :
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD_ITALIC);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arialbi.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 				default:
 					if($non_standard_characters != 1)
 					{
 						$font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
 					}
-					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'arial.ttf');  
+					else $font = Zend_Pdf_Font::fontWithPath(dirname(__FILE__)  . '/' . 'TakaoGothic.ttf');  
 				break;
 			}
 		break;
