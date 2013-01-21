@@ -58,7 +58,7 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 		$mageSimpleSKU['name']						= $v["商品名"] . "/" . substr($v["サイズ"], 2) . "/" . substr($v["色"], 3);
 		$mageSimpleSKU['short_description']			= '（未使用）';
 		$mageSimpleSKU['description']				= '（未使用）';
-		$mageSimpleSKU['price']						= $v["上代"];
+		$mageSimpleSKU['price']						= round($v["上代"] * 1.05, -1);
 		$mageSimpleSKU['size']						= substr($v["サイズ"], 2);
 		$mageSimpleSKU['color']						= substr($v["色"], 3);
 		$mageSimpleSKU['url_key']					= $mageSimpleSKU['sku'];
@@ -88,7 +88,7 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 		$mageConfigSKU1['name']						= $v["商品名"];
 		$mageConfigSKU1['short_description']		= $v["商品名"] . "概要";
 		$mageConfigSKU1['description']				= $v["商品名"] . "詳細説明文";
-		$mageConfigSKU1['price']					= $v["上代"];
+		$mageConfigSKU1['price']					= round($v["上代"] * 1.05, -1);
 		$mageConfigSKU1['size']						= NULL;
 		$mageConfigSKU1['color']					= NULL;
 		$mageConfigSKU1['url_key']					= $mageConfigSKU1['sku'];
@@ -114,7 +114,7 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 		$mageConfigSKU2['name']						= $v["商品名"];
 		$mageConfigSKU2['short_description']		= $v["商品名"] . "概要";
 		$mageConfigSKU2['description']				= $v["商品名"] . "詳細説明文";
-		$mageConfigSKU2['price']					= $v["上代"];
+		$mageConfigSKU2['price']					= round($v["上代"] * 1.05, -1);
 		$mageConfigSKU2['size']						= NULL;
 		$mageConfigSKU2['color']					= NULL;
 		$mageConfigSKU2['url_key']					= $mageConfigSKU2['sku'];

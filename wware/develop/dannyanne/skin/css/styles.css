@@ -89,7 +89,7 @@ ul,ol         { list-style:none; }
 
 /* Layout ================================================================================ */
 .wrapper {}
-.page { width:1000px; margin:0 auto; padding:10px 0; text-align:left; }
+.page { width:1000px; margin:0 auto; padding:0; text-align:left; }
 .page-print { background:#fff; padding:20px; text-align:left; }
 .page-empty { background:#fff; padding:20px; text-align:left; }
 .page-popup { padding:20px; text-align:left; }
@@ -1257,6 +1257,22 @@ tr.summary-details-excluded { font-style:italic; }
 
 
 /* Danny&Anne ===================================================================================== */
+/* ヘッダー ======================================================================================= */
+#headernavi{width: 1000px;margin: 0 auto;position: relative;float: left;}
+#headernavi .logo {float: left;}
+#headernavi .quick-access {float:left; margin:10px 0; width:740px;}
+#headernavi .form-search {float:right;}
+#headernavi .links{ clear:both;float:right;margin:10px 0;font-family: 'Gill Sans W04 Roman',Gill Sans,Arial;font-size: 11px;letter-spacing: 1px;text-transform: uppercase;}
+#headernavi .links li{margin:0 0 0 20px;}
+#headernavi .links .top-link-cart{list-style: none;padding-left: 20px;background: url(../images/cart_icon.gif) 0% 50% no-repeat;}
+#headernavi .glovalnavi{ clear:both;float:right;margin:0;font-family: 'Gill Sans W04 Roman',Gill Sans,Arial;font-size: 12px;letter-spacing: 1px;text-transform: uppercase;}
+#headernavi .glovalnavi a{color: #000000;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;transition: all 0.5s;text-decoration:none; }
+#headernavi .glovalnavi a:hover{color: #a3a3a3;text-decoration:none; }
+#headernavi .glovalnavi :focus{ outline:0; }
+#headernavi .glovalnavi li{ float:left; margin:0 0 0 20px;}
+
+
+/* TOPページ slideshow ============================================================================= */
 #container {width: 1000px;margin: 0 auto;position: relative;float: left;}
 div#slideshow {width: 1000px;height: 618px;margin:0 0 2px;padding: 0;overflow: scroll;/* Allows the slides to be viewed using scrollbar if Javascript isn't available */position: relative;z-index: 5;}
 div#slideshow ul#slideNavi {display: none;list-style: none;position: relative;top: 269px;z-index: 15;}
@@ -1269,6 +1285,7 @@ div#slideshow ul#slides {list-style: none;}
 div#slideshow ul#slides li {margin: 0;}
 a {outline: none;}
 
+/* TOPページ スライドバナー ========================================================================== */
 #banner {position: relative;width: 1000px;margin:auto;}
 #banner #viewline {position: relative;height: 150px;width:1000px;overflow: hidden;}
 #banner #left-arrow, #banner #right-arrow {position: absolute;background-image: url(../images/arrows2.png);cursor: pointer;height: 38px;width: 27px;text-align: center;font-size: 18px;color: #fff;left: 0;z-index: 50;background-position: 0 0px;}
@@ -1280,7 +1297,7 @@ a {outline: none;}
 .ww_productDetail_sku_list img { float: left;width:60px;margin:5px auto;}
 .ww_productDetail_sku_list h2 { float: left;width: 200px;}
 
-
+/* TOPページ アイテム表示 ============================================================================ */
 #title-newarrivlas {background: url(../images/toptitle_newarrival.gif) no-repeat center;}
 #title-pickup {background: url(../images/toptitle_pickupitem.gif) no-repeat center;}
 #title-ranking {background: url(../images/toptitle_ranking.gif) no-repeat center;}

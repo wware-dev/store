@@ -32,7 +32,8 @@ $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 
 <?php foreach($_attributes as $_attribute){ $attr[] = $_attribute->getAttributeId(); } ?>
 
-<?php if ($_product->isSaleable() && count($_attributes)):?>
+<?php //if ($_product->isSaleable() && count($_attributes)):?>
+<?php if (count($_attributes)):?>
 <!--
     <dl>
     <?php foreach($_attributes as $_attribute): ?>
@@ -76,6 +77,8 @@ foreach($col as $simple_product){
 		}
 */
 		$addToCartUrl = $this->getSubmitUrl($_product) . "?super_attribute[92]=" . $simple_product->getColor() . "&super_attribute[146]=" . $simple_product->getSize();
+		$productAlertUrl = "/store/index.php/productalert/add/stock/product_id/" . $simple_product->getId() . "/uenc/" . base64_encode("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) . "/";
+
 ?>
 
 <li>
@@ -88,7 +91,7 @@ foreach($col as $simple_product){
 
 <img src="<?php echo $simple_product->getImageUrl(); ?>">
 <h2><?php echo $simple_product->getAttributeText("color") . "/" . $simple_product->getAttributeText("size") ?></h2>
-<?php echo '<a href="">再入荷通知</a><br>';} ?>
+<?php echo '<a href="' . $productAlertUrl . '">再入荷通知</a><br>';} ?>
 </li>
 <?php } ?>
 </ul>
@@ -99,6 +102,8 @@ foreach($col as $simple_product){
 function getClassMethods($o){
 	$methods = get_class_methods(get_class($o));
 	asort($methods);
+	error_log(print_r($methods, true));
+	var_dump($methods);
 	return $methods;
 }
 ?>

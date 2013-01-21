@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>Easy_Template_Path_Hints</name>
+    <version>0.2.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Easy Template Path Hints extension is used to turn on the template path hints for frontend</summary>
+    <description>Easy Template Path Hints extension is used to turn on the template path hints for frontend</description>
+    <notes>- Fixed all the issues related to the Easy Template Path Hints&#xD;
+- Used event-observer method to turn on/off template path hints</notes>
+    <authors><author><name>MagePsycho</name><user>auto-converted</user><email>rajen_k_bhtt@hotmail.com</email></author></authors>
+    <date>2012-03-03</date>
+    <time>17:21:36</time>
+    <contents><target name="magelocal"><dir name="MagePsycho"><dir name="Easypathhints"><dir name="Block"><dir name="System"><dir name="Config"><file name="Info.php" hash="09e62815ab54bf2f73ae70c94ffe9f02"/></dir></dir><file name="Easypathhints.php" hash="4f3f5b2fadef393abddd4fd1587150b0"/></dir><dir name="Helper"><file name="Data.php" hash="16b72955af5218ccac9b7f944078577e"/></dir><dir name="Model"><file name="Easypathhints.php" hash="c4dfd676133eb413d6191f43c17e008f"/><file name="Observer.php" hash="3b76f5dc2708637ab4db318cc301234f"/></dir><dir name="controllers"><file name="IndexController.php" hash="f555e0d45eca2fb1d13d3f3c181fdc8f"/></dir><dir name="etc"><file name="adminhtml.xml" hash="4539abd237cb1105c3664ada132ed546"/><file name="config.xml" hash="07b1d98c5adaa269be592bfc0f2fe973"/><file name="system.xml" hash="6477a7d85c3ae053e8c8670f087e6930"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="MagePsycho_Easypathhints.xml" hash="f758539550c2ed5c83e195eaa7c244a2"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>
