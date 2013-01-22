@@ -25,6 +25,8 @@
  */
 ?>
 
+
+
 <?php
 $_product    = $this->getProduct();
 $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
@@ -62,48 +64,57 @@ $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 	</script>
 
 <ul class="ww_productDetail_sku_list">
+
 <?php
+
 $buttonTitle = $this->__('Add to Cart');
 
 $conf = Mage::getModel('catalog/product_type_configurable')->setProduct($_product);
 $col = $conf->getUsedProductCollection()->addAttributeToSelect('*')->addFilterByRequiredOptions();
+
+$myProductData = array();
+
 foreach($col as $simple_product){
-		$colorId = $simple_product->_data["color"];
-		$sizeId = $simple_product->_data["size"];
-/*		
-		foreach($attr as $k => $v){
-			var_dump($simple_product->getAttributes($v));
-			echo "attrId : " . $v . " " . $simple_product->getAttributes($v) . "<br>";
-		}
-*/
-		$addToCartUrl = $this->getSubmitUrl($_product) . "?super_attribute[92]=" . $simple_product->getColor() . "&super_attribute[146]=" . $simple_product->getSize();
-		$productAlertUrl = "/store/index.php/productalert/add/stock/product_id/" . $simple_product->getId() . "/uenc/" . base64_encode("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) . "/";
+	$colorId = $simple_product->_data["color"];
+	$colorName = $simple_product->getAttributeText("color");
+	$sizeId = $simple_product->_data["size"];
+	$sizeName = $simple_product->getAttributeText("size");
+
+
+	$addToCartUrl = $this->getSubmitUrl($_product) . "?super_attribute[92]=" . $simple_product->getColor() . "&super_attribute[146]=" . $simple_product->getSize();
+	$productAlertUrl = "/store/index.php/productalert/add/stock/product_id/" . $simple_product->getId() . "/uenc/" . base64_encode("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) . "/";
+
+	$simpleImgUrl = $simple_product->getImageUrl();
+	$mySku = array(	"size" => $sizeName,
+					"addCartUrl" => $addToCartUrl,
+					"productAlertUrl" => $productAlertUrl,
+					"imageUrl" => $simpleImgUrl,
+//					"isSalable" => $simple_product->isSaleable(),
+				);
+
+	$myProductData[$colorName][] = $mySku;
+}
+
+var_dump($myProductData);
 
 ?>
 
-<li>
-<?php if($simple_product->isSaleable()){ ?>
 
+
+<!--
+<li>
+<?php if($simple_product->isSaleable()): ?>
 <img src="<?php echo $simple_product->getImageUrl(); ?>">
-<h2><?php echo $simple_product->getAttributeText("color") . "/" . $simple_product->getAttributeText("size") ?></h2>
+<h2><?php echo $simple_product->getAttributeText("color");?></h2>
+<h3><?php echo $simple_product->getAttributeText("size"); ?></h3>
 <a href="<?php echo $addToCartUrl; ?>">カートに入れる</a>
-<?php }else{ ?>
+<?php else: ?>
 
 <img src="<?php echo $simple_product->getImageUrl(); ?>">
 <h2><?php echo $simple_product->getAttributeText("color") . "/" . $simple_product->getAttributeText("size") ?></h2>
 <?php echo '<a href="' . $productAlertUrl . '">再入荷通知</a><br>';} ?>
 </li>
-<?php } ?>
+
 </ul>
-
+-->
 <?php endif;?>
-
-<?php
-function getClassMethods($o){
-	$methods = get_class_methods(get_class($o));
-	asort($methods);
-	error_log(print_r($methods, true));
-	var_dump($methods);
-	return $methods;
-}
-?>
