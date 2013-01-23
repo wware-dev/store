@@ -501,7 +501,9 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* Sidebar =============================================================================== */
 .block { margin:0 0 10px; }
-.block .block-title { border-bottom:1px solid #ddd; padding:3px 10px; }
+.block .block-title {height: 0;overflow-x: hidden;overflow-y: hidden;margin-top:15px;padding-top: 45px;  }
+.block .block-title {background: url(../images/side_title_iteminfo.gif) no-repeat center;}
+
 .block .block-title strong { font-size:14px; font-weight:bold; }
 .block .block-title strong span {}
 .block .block-title a { text-decoration:none !important; }
@@ -539,6 +541,16 @@ tr.summary-details-excluded { font-style:italic; }
 .block-layered-nav .currently {}
 .block-layered-nav .btn-remove { float:left; margin:2px 3px 0 0; }
 
+/* サイドメニューCATEGORY */
+.block .block-content dt {height: 0;overflow-x: hidden;overflow-y: hidden;border-top:1px solid #cccccc; margin-top:15px;padding-top: 45px;  }
+.block .block-content dt {background: url(../images/side_title_category.gif) no-repeat center;}
+.block .block-content ol { padding:0 8px}
+.block .block-content ol li { margin:0 0 5px 0;}
+.block .block-content dd { font-family: 'Gill Sans W04 Roman',Gill Sans,Arial;font-size: 12px;letter-spacing: 1px;text-transform: uppercase;}
+.block .block-content a {color: #000000;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;transition: all 0.5s;text-decoration:none; }
+.block .block-content a:hover {color: #a3a3a3;text-decoration:none; }
+.block .block-content :focus { outline:0; }
+
 /* サイドメニューPRICE/COLOR/SIZE */
 #narrow-by-list dt {height: 0;overflow-x: hidden;overflow-y: hidden;border-top:1px solid #cccccc; margin-top:15px;padding-top: 45px;  }
 #narrow-by-list dt.odd {background: url(../images/side_title_price.gif) no-repeat center;}
@@ -546,6 +558,11 @@ tr.summary-details-excluded { font-style:italic; }
 #narrow-by-list dt.last {background: url(../images/side_title_size.gif) no-repeat center;}
 #narrow-by-list ol { padding:0 8px}
 #narrow-by-list ol li { margin:0 0 5px 0;}
+#narrow-by-list ol li { font-family: 'Gill Sans W04 Roman',Gill Sans,Arial;font-size: 11px;letter-spacing: 1px;text-transform: uppercase;}
+#narrow-by-list ol li a{color: #939393;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;transition: all 0.5s;text-decoration:none; }
+#narrow-by-list ol li a:hover{color: #000;text-decoration:none; }
+#narrow-by-list ol li :focus{ outline:0; }
+
 
 /* Block: Cart */
 .block-cart {}
@@ -625,7 +642,7 @@ tr.summary-details-excluded { font-style:italic; }
 .products-grid li.item { float:left; width:185px; padding:0px 0px 10px 0px; list-style:none; }
 .products-grid .product-image { display:block; width:185px; height:278px; margin:0 0 10px; position:relative; }
 /* バッジ用div */
-.products-grid .badge-newarrival { background:url(../images/badge-newarrival.png) no-repeat; width:38px; height:18px; float:left; }
+.products-grid .badge-newarrival { background:url(../images/badge-newarrival.png) no-repeat; width:38px; height:18px; float:left;}
 .products-grid .badge-sale { background:url(../images/badge-sale.png) no-repeat; width:38px; height:18px; float:left;}
 .products-grid .badge-rearrival { background:url(../images/badge-rearrival.png) no-repeat; width:38px; height:18px; float:left;}
 .products-grid .badge-soldout { background:url(../images/badge-soldout.png) no-repeat; width:190px; height:30px; position:absolute;top:124px; }

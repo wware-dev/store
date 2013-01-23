@@ -25,8 +25,6 @@
  */
 ?>
 
-
-
 <?php
 $_product    = $this->getProduct();
 $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
@@ -64,16 +62,11 @@ $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 	</script>
 
 <ul class="ww_productDetail_sku_list">
-
 <?php
-
 $buttonTitle = $this->__('Add to Cart');
 
 $conf = Mage::getModel('catalog/product_type_configurable')->setProduct($_product);
 $col = $conf->getUsedProductCollection()->addAttributeToSelect('*')->addFilterByRequiredOptions();
-
-$myProductData = array();
-
 foreach($col as $simple_product){
 	$colorId = $simple_product->_data["color"];
 	$colorName = $simple_product->getAttributeText("color");
@@ -89,32 +82,50 @@ foreach($col as $simple_product){
 					"addCartUrl" => $addToCartUrl,
 					"productAlertUrl" => $productAlertUrl,
 					"imageUrl" => $simpleImgUrl,
-//					"isSalable" => $simple_product->isSaleable(),
+					"isSalable" => $simple_product->isSaleable(),
 				);
 
 	$myProductData[$colorName][] = $mySku;
 }
-
-var_dump($myProductData);
-
 ?>
 
+<?php foreach($myProductData as $myColor => $myProduct): ?>
+	<?php
+		foreach ($myProduct as $key => $row) { $sort_key[$key] = $row["size"]; }
+		array_multisort( $sort_key, SORT_DESC, $myProduct );
+	?>
+	<li>
+		<img src="<?php echo $myProduct[0]["imageUrl"]; ?>">
+		<h2><?php echo $myColor; ?></h2>
 
+		<?php foreach($myProduct as $mySku):?>
+		
+			<?php if($mySku["isSalable"]): ?>
+		
+				<h3><?php echo $mySku["size"] . "/在庫あり"; ?></h3>
+				<a href="<?php echo $mySku["addCartUrl"]; ?>" class="cart">カートに入れる</a>
+			
+			<?php else: ?>
+		
+				<h3><?php echo $mySku["size"] . "/在庫なし"; ?></h3>
+				<a href="<?php echo $mySku["productAlertUrl"]; ?>" class="request">再入荷のお知らせ</a>
+			<?php endif; ?>
+		<?php endforeach; ?>
+		
+	</li>
+<?php endforeach; ?>
 
-<!--
-<li>
-<?php if($simple_product->isSaleable()): ?>
-<img src="<?php echo $simple_product->getImageUrl(); ?>">
-<h2><?php echo $simple_product->getAttributeText("color");?></h2>
-<h3><?php echo $simple_product->getAttributeText("size"); ?></h3>
-<a href="<?php echo $addToCartUrl; ?>">カートに入れる</a>
-<?php else: ?>
-
-<img src="<?php echo $simple_product->getImageUrl(); ?>">
-<h2><?php echo $simple_product->getAttributeText("color") . "/" . $simple_product->getAttributeText("size") ?></h2>
-<?php echo '<a href="' . $productAlertUrl . '">再入荷通知</a><br>';} ?>
-</li>
 
 </ul>
--->
+
 <?php endif;?>
+
+<?php
+function getClassMethods($o){
+	$methods = get_class_methods(get_class($o));
+	asort($methods);
+	error_log(print_r($methods, true));
+	var_dump($methods);
+	return $methods;
+}
+?>
