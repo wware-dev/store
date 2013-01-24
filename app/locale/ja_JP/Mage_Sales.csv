@@ -735,7 +735,7 @@
 "Order Status Information","注文ステータス情報"
 "Status Label","ステータスラベル"
 "The order status has been saved.","注文ステータスが保存されました。"
-"This product has not been configured.","設定可能商品が不正です。商品管理から確認を行なってください。"
+"This product has not been configured.","親SKU商品が不正です。商品管理から確認を行なってください。"
 "You can purchase ""Trial Product"" only once.","トライアル商品は一度しか購入できません。"
 "Table of Items Ordered","お買い上げ明細"
 "Last Buy","最終購入日"

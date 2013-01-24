@@ -59,17 +59,26 @@
     	$div_soldout = "";
     	$badge = "";
     	
-    	if(!$_product->isAvailable()){$div_soldout = '<div class="badge-soldout"></div>';}
-
-    	$lastarrivaldate = strtotime($_product->getLast_arrival_date());
-    	if(($lastarrivaldate + (60*60*24*7)) > now() && $lastarrivaldate != ""){ $div_renew = '<div class="badge-rearrival"></div>'; }
+    	if(!$_product->isAvailable()){$div_soldout = '<li class="badge-soldout"></li>';}
     	
-    	if($_product->getData('news_to_date')){ $div_new = '<div class="badge-newarrival"></div>'; }
+    	$lastarrivaldateValue = Mage::getModel('catalog/product')->load($_product->getId())->getAttributeText('last_arrival_date');
+    	$lastarrivaldate = strtotime(date("Y/") . $lastarrivaldateValue);
 
-    	if($_product->getData('special_to_date')){ $div_sale = '<div class="badge-sale"></div>'; }
+    	$releasedateValue = Mage::getModel('catalog/product')->load($_product->getId())->getAttributeText('release_date');
+    	$releasedate = strtotime(date("Y/") . $releasedateValue);
+
+
+    	if($lastarrivaldate != $releasedate){
+	    	if( (($lastarrivaldate + (60*60*24*7)) > time()) && $lastarrivaldate != ""){ $div_renew = '<div class="badge-rearrival"></li>'; }
+    	}else{
+	    	//if($_product->getData('news_to_date')){ $div_new = '<li class="badge-newarrival"></li>'; }
+	    	if( (($releasedate + (60*60*24*7)) > time()) && $lastarrivaldate != ""){ $div_new = '<li class="badge-newarrival"></li>'; }
+	    }
+
+    	if($_product->getData('special_to_date')){ $div_sale = '<li class="badge-sale"></li>'; }
 		    	
 
-    	$badge = $div_new . $div_renew . $div_sale . $div_soldout;
+    	$badge = "<ul>" . $div_new . $div_renew . $div_sale . $div_soldout . "</ul>";
 
 	?>
         <?php if ($i++%$_columnCount==0): ?>
@@ -77,7 +86,7 @@
         <?php endif ?>
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><?php echo $badge; ?><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(185,278); ?>" width="185" height="278" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
-                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $this->__($_product->getName()), 'name') ?></a></h2>
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>

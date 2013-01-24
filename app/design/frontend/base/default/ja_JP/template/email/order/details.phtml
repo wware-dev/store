@@ -64,21 +64,29 @@ if ($_order->getDeliveryDate()) {
 ******************************************************************
 　ご注文商品明細
 ******************************************************************
-
 <?php foreach ($_items as $item): ?>
 <?php $children = $item->getChildrenItems(); ?>
 <?php if(count($children) > 0): ?>
+■<?php echo $item->getName(); ?>
+
 <?php foreach ($children as $child): ?>
-<!--<?php if($child->getPriceInclTax() = 0){ $price = $item->getPriceInclTax(); }else{ $price = $child->getPriceInclTax(); } ?>-->
-商品名: <?php echo $child->getName(); ?>
+<?php
+	if($child->getPriceInclTax() == 0){
+		$price = $item->getPriceInclTax();
+	}else{
+		$price = $child->getPriceInclTax();
+	}
+?>
+　商品名: <?php echo $child->getName(); ?>
 
-商品コード: <?php echo $child->getSku(); ?>
+　商品コード: <?php echo $child->getSku(); ?>
 
-数量：<?php echo (int)$child->getQtyOrdered(); ?> 個
-金額：<?php echo $currency->formatTxt($price); ?>
-小計：<?php echo $currency->formatTxt($item->getRowTotalInclTax()); ?>
+　数量：<?php echo (int)$child->getQtyOrdered(); ?> 
+　金額：<?php echo $currency->formatTxt($price); ?>
+
 
 <?php endforeach;?>
+　小計：<?php echo $currency->formatTxt($item->getRowTotalInclTax()); ?>
 <?php endif; ?>
 <?php
 /*

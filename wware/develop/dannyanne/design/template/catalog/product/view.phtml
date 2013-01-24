@@ -39,7 +39,7 @@
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="product-essential">
-    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="get" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
         <div class="no-display">
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
@@ -47,7 +47,7 @@
 
         <div class="product-shop">
             <div class="product-name">
-                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                <h1><?php echo $_helper->productAttribute($_product, $this->__($_product->getName()), 'name') ?></h1>
             </div>
             <?php //echo $this->getChildHtml('alert_urls') ?>
             <?php echo $this->getChildHtml('product_type_data') ?>
@@ -91,7 +91,6 @@
 
 		    <div class="product-collateral">
 
-<!--
 			    <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
 		        <div class="box-collateral <?php echo "box-{$alias}"?>">
 		            <?php if ($title = $this->getChildData($alias, 'title')):?>
@@ -100,9 +99,8 @@
 		            <?php echo $html; ?>
 		        </div>
 		        <?php endforeach;?>
--->
 		        <?php echo $this->getChildHtml('upsell_products') ?>
-		        <?php echo $this->getChildHtml('product_additional_data') ?>
+		        <!--<?php echo $this->getChildHtml('product_additional_data') ?>-->
 		    </div>
         </div>
 	

@@ -98,7 +98,7 @@ ul,ol         { list-style:none; }
 
 /* Base Columns */
 .col-left { float:left; width:200px; }
-.col-main { float:left; width:766px; }
+.col-main { float:right; width:785px; }
 .col-right { float:right; width:200px; }
 
 /* 1 Column Layout */
@@ -145,8 +145,8 @@ input.checkbox { margin-right:3px; }
 input.qty { width:2.5em !important; }
 button.button::-moz-focus-inner { padding:0; border:0; } /* FF Fix */
 button.button { -webkit-border-fit:lines; } /* <- Safari & Google Chrome Fix */
-button.button { overflow:visible; width:auto; border:0; padding:0; margin:0; background:transparent; cursor:pointer; }
-button.button span { float:left; height:21px; background:transparent url(../images/bkg_button.gif) 0 0 no-repeat; padding:0 0 0 8px; font:bold 12px/21px Arial, Helvetica, sans-serif; text-align:center; white-space:nowrap; color:#fff; }
+button.button { overflow:visible; width:auto; border:0; padding:0; margin:0; background:transparent; cursor:pointer;}
+button.button span { float:left; height:22px; background:transparent url(../images/bkg_button.gif) 0 0 no-repeat; padding:0 0 0 8px; font:12px/22px Arial, Helvetica, sans-serif; text-align:center; white-space:nowrap; color:#fff; font-weight:normal;letter-spacing: 0.1em;}
 button.button span span { background-position:100% 0; padding:0 12px 0 4px; }
 button.disabled {}
 button.disabled span {}
@@ -501,8 +501,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* Sidebar =============================================================================== */
 .block { margin:0 0 10px; }
-.block .block-title {height: 0;overflow-x: hidden;overflow-y: hidden;margin-top:15px;padding-top: 45px;  }
-.block .block-title {background: url(../images/side_title_iteminfo.gif) no-repeat center;}
+.block .block-title {}
 
 .block .block-title strong { font-size:14px; font-weight:bold; }
 .block .block-title strong span {}
@@ -543,9 +542,10 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* サイドメニューCATEGORY */
 .block .block-content dt {height: 0;overflow-x: hidden;overflow-y: hidden;border-top:1px solid #cccccc; margin-top:15px;padding-top: 45px;  }
-.block .block-content dt {background: url(../images/side_title_category.gif) no-repeat center;}
 .block .block-content ol { padding:0 8px}
 .block .block-content ol li { margin:0 0 5px 0;}
+.block .block-content ul { padding:0 8px}
+.block .block-content ul li { float:left;}
 .block .block-content dd { font-family: 'Gill Sans W04 Roman',Gill Sans,Arial;font-size: 12px;letter-spacing: 1px;text-transform: uppercase;}
 .block .block-content a {color: #000000;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;transition: all 0.5s;text-decoration:none; }
 .block .block-content a:hover {color: #a3a3a3;text-decoration:none; }
@@ -553,9 +553,6 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* サイドメニューPRICE/COLOR/SIZE */
 #narrow-by-list dt {height: 0;overflow-x: hidden;overflow-y: hidden;border-top:1px solid #cccccc; margin-top:15px;padding-top: 45px;  }
-#narrow-by-list dt.odd {background: url(../images/side_title_price.gif) no-repeat center;}
-#narrow-by-list dt.even {background: url(../images/side_title_color.gif) no-repeat center;}
-#narrow-by-list dt.last {background: url(../images/side_title_size.gif) no-repeat center;}
 #narrow-by-list ol { padding:0 8px}
 #narrow-by-list ol li { margin:0 0 5px 0;}
 #narrow-by-list ol li { font-family: 'Gill Sans W04 Roman',Gill Sans,Arial;font-size: 11px;letter-spacing: 1px;text-transform: uppercase;}
@@ -634,30 +631,35 @@ tr.summary-details-excluded { font-style:italic; }
 .category-image { width:100%; overflow:hidden; margin:0 0 10px; text-align:center; }
 .category-image img {}
 .category-description { margin:0 0 10px; }
-.category-products {}
+.category-products { margin:0 0 15px; }
 
 /* View Type: Grid */
-.products-grid { border-bottom:1px solid #ddd; position:relative; }
-.products-grid.last { border-bottom:0; }
-.products-grid li.item { float:left; width:185px; padding:0px 0px 10px 0px; list-style:none; }
+.products-grid { position:relative; }
+.products-grid li.item { float:left; width:185px; padding:0px 15px 10px 0; list-style:none; }
+.products-grid li.last { border-bottom:0;padding:0px 0 10px 0; }
 .products-grid .product-image { display:block; width:185px; height:278px; margin:0 0 10px; position:relative; }
 /* バッジ用div */
+.products-grid .product-image ul { position:absolute;top:0; }
 .products-grid .badge-newarrival { background:url(../images/badge-newarrival.png) no-repeat; width:38px; height:18px; float:left;}
 .products-grid .badge-sale { background:url(../images/badge-sale.png) no-repeat; width:38px; height:18px; float:left;}
 .products-grid .badge-rearrival { background:url(../images/badge-rearrival.png) no-repeat; width:38px; height:18px; float:left;}
 .products-grid .badge-soldout { background:url(../images/badge-soldout.png) no-repeat; width:190px; height:30px; position:absolute;top:124px; }
 
-.products-grid .product-name { margin:0 0 5px; font-weight:normal; font-size:12px; }
-.products-grid .product-name a {}
+.products-grid .product-name { margin:0 0 5px; font-weight:normal; font-size:12px; text-align:center; }
+.products-grid .product-name a{color: #000000;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;transition: all 0.5s;text-decoration:none; }
+.products-grid .product-name a:hover{color: #a3a3a3;text-decoration:none; }
+.products-grid .product-name a:focus{ outline:0; }
+
 .products-grid .price-box { margin:0 auto; text-align:center; }
 .products-grid .availability { line-height:21px; }
 .products-grid .actions { position:absolute; bottom:12px; }
 .col2-left-layout .products-grid,
-.col2-right-layout .products-grid { width:740px; margin:0 auto; }
-.col1-layout .products-grid { width:790px; margin:0 auto; }
+.col2-right-layout .products-grid { width:785px; margin:0 auto; }
+.col1-layout .products-grid { width:785px; margin:0 auto; }
 
 /* View Type: List */
-.products-list li.item { border-bottom:1px solid #ddd; padding:12px 10px; }
+.products-list li.item { border-bottom:1px solid #ddd;
+ padding:12px 10px; }
 .products-list li.item.last { border-bottom:0; }
 .products-list .product-image { float:left; width:135px; height:135px; margin:0 0 10px; }
 .products-list .product-shop { margin-left:150px; }
@@ -718,7 +720,7 @@ tr.summary-details-excluded { font-style:italic; }
 /********** < Product Prices */
 .price { white-space:nowrap !important; }
 
-.price-box { font-size:18px;}
+.price-box { font-size:12px; color:#777777; }
 .price-box .price { font-weight:normal; }
 
 /* Regular price */
@@ -1218,14 +1220,6 @@ tr.summary-details-excluded { font-style:italic; }
 /* ======================================================================================= */
 
 
-/* Footer ================================================================================ */
-.footer { border:1px solid #ddd; padding:10px; }
-.footer p { text-align:right; }
-.footer address { text-align:right; }
-.footer ul {}
-.footer ul li { display:inline; }
-.footer-container .bottom-container { text-align:center; }
-/* ======================================================================================= */
 
 
 /* Clears ================================================================================ */
@@ -1329,6 +1323,7 @@ a {outline: none;}
 #title-pickup {background: url(../images/toptitle_pickupitem.gif) no-repeat center;}
 #title-ranking {background: url(../images/toptitle_ranking.gif) no-repeat center;}
 .top-title {height: 0;overflow-x: hidden;overflow-y: hidden;padding-top: 46px;}
+.top-rtitle {height: 0;overflow-x: hidden;overflow-y: hidden;padding-top: 65px;}
 
  
 /* 書品詳細ページ アイテム表示 ============================================================================ */
@@ -1342,3 +1337,37 @@ a {outline: none;}
 .ww_productDetail_sku_list a {color: #FFFFFF;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;transition: all 0.5s;text-decoration:none; }
 .ww_productDetail_sku_list a:hover {color: #000;text-decoration:none; }
 .ww_productDetail_sku_list :focus { outline:0; }
+
+/* ナビゲーションメニュー ============================================================================ */
+.block-layered-nav .lastarrival {background: url(../images/side_title_iteminfo.gif) no-repeat center;}
+.block-layered-nav .category {background: url(../images/side_title_category.gif) no-repeat center;}
+.block-layered-nav .price {background: url(../images/side_title_price.gif) no-repeat center;}
+.block-layered-nav .color {background: url(../images/side_title_color.gif) no-repeat center;}
+.block-layered-nav .size {background: url(../images/side_title_size.gif) no-repeat center;}
+
+.side_banner{}
+.side_banner ol{ margin:20px 0 0 0;}
+.side_banner img{ margin:0 auto 5px;}
+
+.block-layered-nav .follow {background: url(../images/side_title_follow.gif) no-repeat center;}
+
+/* footer ============================================================================ */
+#footer {margin: 10px auto; padding: 10px 0 10px; text-align: left; clear: both; overflow: hidden; border-top:1px solid #CCC; font-size:10px; line-height:1.5;}
+#footer .footer-navi {width: 195px;list-style: none;text-align: left;float: right;padding: 0 0 0 20px; height: 115px;}
+#copyright {margin: 10px 0;text-align: center; clear: both; color: #666666; font-family:"Comic Sans MS", cursive;}
+
+/* info*/
+.footer-line1 {float: left; padding: 0 0 0 20px; width: 240px; height: 135px;}
+.footer-line2 {float: left; padding: 0 0 0 20px; _width: 240px; height: 175px;}
+*:first-child+html .footer-line2 {width:200px; height: 200px;}/*IE7*/
+.footer-line2 {height:200px\9;}/*IE8*/
+.footer-line3 {float: left; padding: 0 0 0 20px; _width: 240px; height: 135px;}
+*:first-child+html .footer-line3 {width:220px;}/*IE7*/
+.footer-line-end {float: left; padding: 0 0 0 20px; _width: 240px; height: 135px;}
+*:first-child+html .footer-end {width:220px;}/*IE7*/
+#footer h3 {height: 0; margin: 0 0 5px; overflow: hidden; padding: 35px 0 0;}
+#title-footer01 {background: url(../images/footer_title01.gif) no-repeat;}
+#title-footer02 {background: url(../images/footer_title02.gif) no-repeat;}
+#title-footer03 {background: url(../images/footer_title03.gif) no-repeat;}
+#title-footer04 {background: url(../images/footer_title04.gif) no-repeat;}
+

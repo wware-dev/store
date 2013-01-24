@@ -31,50 +31,74 @@
  * @see Mage_Catalog_Block_Layer_View
  */
 ?>
+
+<?php $isHome = Mage::getBlockSingleton('page/html_header')->getIsHomePage(); ?>
+
 <?php if($this->canShowBlock()): ?>
 <div class="block block-layered-nav">
-    <div class="block-title">
-        タイトル
-    </div>
-    <div class="block-content">
-    	ITEM INFO<br />
-    	TODAY!<br />
-    	2013.1.20<br />
-    	2031.1.17<br />
-    <dt>カテゴリ</dt>
-    <dd><ol>
 
-<li><a href="list">ALL ITEMS</a></li>
 <?php
-$arr =  get_categories();
-$arr = array_flip($arr);
-foreach($arr as $k => $v){
-	$catUrl = Mage::getModel("catalog/category")->load($v)->getUrl();
-	$catName = $k;
-	echo '<li><a href="' . $catUrl . '">' . $catName . '</a></li>';
+if($isHome){
+	$category = Mage::getModel('catalog/category'); 
+	$tree = $category->getTreeModel(); 
+	$tree->load();
+	$ids = $tree->getCollection()->getAllIds(); 
+	$arr = array();
+	if ($ids){ 
+		foreach ($ids as $id){
+			$cat = Mage::getModel('catalog/category');
+			$cat->load($id);
+			if($cat->isInRootCategoryList()){
+				$isActive = $cat->$_data["is_active"];
+				if( ($isActive["is_active"] == 1) ){
+					$arr[$id] = $cat->getName();
+				}
+			}
+		} 
+	}
+	$arr = array_flip($arr);
 }
-?>
-	
-	</ol></dd>
 
-       <?php echo $this->getStateHtml() ?>
-        <?php if ($this->getLayer()->getState()->getFilters()): ?>
+?>
+	<div class="block-content">
+		<?php echo $this->getStateHtml(); ?>
+        <?php if($this->getLayer()->getState()->getFilters()): ?>
             <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
         <?php endif; ?>
         <?php if($this->canShowOptions()): ?>
             <!--<p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>-->
             <dl id="narrow-by-list">
+            	<?php
+            	if($isHome){
+            		echo '<dt class="category">CATEGORY</dt>';
+            		echo '<dd><ol><li><a href="list">ALL ITEMS</a></li>';
+					foreach($arr as $k => $v){
+						$catUrl = Mage::getModel("catalog/category")->load($v)->getUrl();
+						$catName = $k;
+						echo '<li><a href="' . $catUrl . '">' . $this->__($catName) . '</a></li>';
+					}
+					echo '</ol></dd>';
+				}
+				?>	
+
                 <?php $_filters = $this->getFilters() ?>
                 <?php foreach ($_filters as $_filter): ?>
-                <?php if($this->__($_filter->getName()) == "カテゴリ"){continue;} ?>
-                <?php if($_filter->getItemsCount()): ?>
-                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
-                    <dd><?php $html = $_filter->getHtml(); echo str_replace("/store/", "/store/list", $html); ?></dd>
-                <?php endif; ?>
+                <?php //getClassMethod($_filter,true);?>
+	                <?php if($isHome == true): ?>
+	                	<?php if($_filter->getName() == "カテゴリ"){continue;} ?>
+	                <?php endif; ?>
+	                <?php if($_filter->getItemsCount()): ?>
+	                	<?php if($isHome){$urlReplace = "/store/list";}else{$urlReplace = "/store/";}?>
+	                    <dt class="<?php echo $this->__("CSS_" . $_filter->getName()); ?>"><?php echo $_filter->getName(); ?></dt>
+	                    <dd><?php $html = $_filter->getHtml(); echo str_replace("/store/", $urlReplace, $html); ?></dd>
+	                <?php endif; ?>
                 <?php endforeach; ?>
+                
+
             </dl>
             <script type="text/javascript">decorateDataList('narrow-by-list')</script>
         <?php endif; ?>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_links')->toHtml(); ?> 
     </div>
 </div>
 <?php endif; ?>
@@ -93,20 +117,7 @@ function getClassMethods($o, $echo=false){
 
 function get_categories(){
 
-$category = Mage::getModel('catalog/category'); 
-$tree = $category->getTreeModel(); 
-$tree->load();
-$ids = $tree->getCollection()->getAllIds(); 
-$arr = array();
-if ($ids){ 
-foreach ($ids as $id){
-$cat = Mage::getModel('catalog/category');
-$cat->load($id);
-if($cat->isInRootCategoryList()){
-	$arr[$id] = $cat->getName();
-}
-} 
-}
+
 
 return $arr;
 

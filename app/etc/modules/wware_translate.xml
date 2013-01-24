@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <wware_translate>
+            <active>true</active>
+            <codePool>local</codePool>
+        </wware_translate>
+    </modules>
+</config>
