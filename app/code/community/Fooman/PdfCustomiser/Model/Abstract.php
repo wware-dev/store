@@ -524,7 +524,7 @@ abstract class Fooman_PdfCustomiser_Model_Abstract extends Mage_Sales_Model_Orde
                             $tmpPdfTotalAmount = $tmpPdfTotalAmounts['amount'];
                             $sign = ($tmpPdfTotalAmount > 0) ? -1 : 1;
                             $totals[$sortOrder][] = array(
-                                'label'      => $pdfTotal->getTitle(),
+                                'label'      => $pdfTotal->getTitle()."あ",
                                 'amount'     => $sign * $tmpPdfTotalAmount,
                                 'baseAmount' => Mage::app()->getStore()->roundPrice(
                                     $sign * $tmpPdfTotalAmount * $order->getBaseToOrderRate()
@@ -532,6 +532,7 @@ abstract class Fooman_PdfCustomiser_Model_Abstract extends Mage_Sales_Model_Orde
                             );
                         } elseif (is_array($tmpPdfTotalAmounts)) {
                             foreach ($tmpPdfTotalAmounts as $tmpPdfTotalAmount) {
+                            	/*
                                 $totals[$sortOrder][] = array(
                                     'label'      => $tmpPdfTotalAmount['label'],
                                     'amount'     => $pdfTotal->getAmount(),
@@ -539,6 +540,7 @@ abstract class Fooman_PdfCustomiser_Model_Abstract extends Mage_Sales_Model_Orde
                                         $pdfTotal->getAmount() * $order->getBaseToOrderRate()
                                     )
                                 );
+                                */
                             }
                         }
                     }

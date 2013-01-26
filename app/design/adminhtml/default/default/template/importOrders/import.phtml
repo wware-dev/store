@@ -1,0 +1,44 @@
+<?php
+/**
+ * Silver Touch Technologies Limited.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.silvertouch.com/MagentoExtensions/LICENSE.txt
+ *
+ * @category   Sttl
+ * @package    Sttl_ImportOrders
+ * @copyright  Copyright (c) 2011 Silver Touch Technologies Limited. (http://www.silvertouch.com/MagentoExtensions)
+ * @license    http://www.silvertouch.com/MagentoExtensions/LICENSE.txt
+ */
+?>
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?php echo $this->__('SILVER Import Orders - Step1')?></h3></td>
+            <td class="a-right">
+                <button onclick="editForm.submit()" class="scalable save" type="button"><span>Next</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="edit_form" name="edit_form" method="post" action="<?php echo $this->getUrl('*/*/mapping')?>" enctype="multipart/form-data">
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><?php echo $this->__("Upload ImportOrder's CSV File")?> <span class="required">*</span></td>
+                    <td class="input-ele"><input type="file" class="input-text required-entry" name="report" /></td>
+                </tr>
+				
+				
+            </table>
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+</script>

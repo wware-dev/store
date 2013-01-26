@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Silver Touch Technologies Limited.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.silvertouch.com/MagentoExtensions/LICENSE.txt
+ *
+ * @category   Sttl
+ * @package    Sttl_ImportOrders
+ * @copyright  Copyright (c) 2011 Silver Touch Technologies Limited. (http://www.silvertouch.com/MagentoExtensions)
+ * @license    http://www.silvertouch.com/MagentoExtensions/LICENSE.txt
+ */ 
+-->
+<layout version="1.0.0">
+    <importorder_import_index>
+        <reference name="content">
+            <block type="core/template" name="import" template="importOrders/import.phtml"/>
+        </reference>
+    </importorder_import_index>
+	<importorder_import_mapp>
+        <reference name="content">
+            <block type="core/template" name="mapp" template="importOrders/mapp.phtml"/>
+        </reference>
+    </importorder_import_mapp>
+</layout>

@@ -1023,15 +1023,12 @@ abstract class Fooman_PdfCustomiser_Helper_Pdf extends Mage_Core_Helper_Abstract
                 $i = 1;
                 foreach ($subItems as $bundleItem) {
                     $isLast = $i == $nrSubItems;
-                    $style = ($bundleItem['productDetails']['Options'])
-                        ? ''
-                        : ($isLast ? $column['style_last'] : '');
+                    $style = ($bundleItem['productDetails']['Options']) ? '' : ($isLast ? $column['style_last'] : '');
                     if ($styleOverride) {
-                        $style = ($bundleItem['productDetails']['Options'])
-                            ? ''
-                            : ($isLast ? $styleOverride['style_last'] : '');
+                        $style = ($bundleItem['productDetails']['Options']) ? '' : ($isLast ? $styleOverride['style_last'] : '');
                     }
-                    $trInner .= '</tr><tr nobr="true">';
+                    $style = "border-style:none;" . str_replace("1px", "0px", $style);
+                    $trInner .= '</tr><tr style="border-style:none;" nobr="true"><td style="border-style:none" width="40" height="200"></td>';
                     foreach ($columns as $column) {
                         switch ($column['key']) {
                             case 'position':
@@ -1083,7 +1080,8 @@ abstract class Fooman_PdfCustomiser_Helper_Pdf extends Mage_Core_Helper_Abstract
                                 break;
                             case 'image':
                                 $trInner .= '<td style="' . $style . '" align="'
-                                    . $column['align'] . '" width="' . $column['width'] . '%">'
+//                                    . $column['align'] . '" width="' . $column['width'] . '%">'
+                                    . $column['align'] . '" width="250px">'
                                     .($bundleItem['image']?'<img src="' . $bundleItem['image'] . '" height="180"/>':'')
                                     . ($isLast ? '' : $vertSpacing) . '</td>';
                                 break;
@@ -1092,11 +1090,11 @@ abstract class Fooman_PdfCustomiser_Helper_Pdf extends Mage_Core_Helper_Abstract
                                     array(
                                         $bundleItem['productDetails']['Sku'],
                                         $this->getBarcodeType(),
-                                        '', '', '35', '8'
+                                        '', '', '35', '13'
                                     )
                                 );
                                 
-                                $trInner .= '<td valign="top" style="' . $style . '" width="200px"><tcpdf method="write1DBarcode2" params="'
+                                $trInner .= '<td valign="top" style="' . $style . '" width="500px"><tcpdf method="write1DBarcode2" params="'
                                     . $barcodeParams . '"/>'
                                     . ($isLast ? $vertSpacing : '') . '</td>';
 /*
@@ -1113,7 +1111,8 @@ abstract class Fooman_PdfCustomiser_Helper_Pdf extends Mage_Core_Helper_Abstract
                                 break;
                             case 'qty':
                                 $trInner .= '<td style="' . $style . '" align="'
-                                    . $column['align'] . '" width="' . $column['width'] . '%">'
+//                                    . $column['align'] . '" width="' . $column['width'] . '%">'
+                                    . $column['align'] . '" width="100px">'
                                     . $bundleItem['qty'] . ($isLast ? $vertSpacing : '') . '</td>';
                                 break;
                             case 'price':

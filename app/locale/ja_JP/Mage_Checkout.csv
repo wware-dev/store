@@ -43,7 +43,7 @@
 "Click <a href=""%s"" onclick=""this.target='_blank'"">here to print</a> a copy of your order confirmation.","<a href=""%s"" onclick=""this.target='_blank'"">こちら</a>から注文確認書を印刷することができます。"
 "Click <a href=""%s"">here</a> to continue shopping.","<br /><button type=""button"" title=""買い物を続ける"" class=""button btn-continue"" onclick=""setLocation('%s')""><span><span>買い物を続ける</span></span></button>"
 "Condition Name","条件"
-"Configurable Product Image","親SKU商品の画像"
+"Configurable Product Image","設定可能商品の画像"
 "Content","コンテンツ"
 "Content Height","高さ"
 "Content Height (css)","高さ (css)"

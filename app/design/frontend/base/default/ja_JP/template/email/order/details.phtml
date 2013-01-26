@@ -64,40 +64,17 @@ if ($_order->getDeliveryDate()) {
 ******************************************************************
 　ご注文商品明細
 ******************************************************************
+
 <?php foreach ($_items as $item): ?>
-<?php $children = $item->getChildrenItems(); ?>
-<?php if(count($children) > 0): ?>
-■<?php echo $item->getName(); ?>
+商品名: <?php echo $item->getName(); ?>
 
-<?php foreach ($children as $child): ?>
-<?php
-	if($child->getPriceInclTax() == 0){
-		$price = $item->getPriceInclTax();
-	}else{
-		$price = $child->getPriceInclTax();
-	}
-?>
-　商品名: <?php echo $child->getName(); ?>
+商品コード: <?php echo $item->getSku(); ?>
 
-　商品コード: <?php echo $child->getSku(); ?>
+数量：<?php echo (int)$item->getQtyOrdered(); ?> 個
+金額：<?php echo $currency->formatTxt($item->getPriceInclTax()); ?>
 
-　数量：<?php echo (int)$child->getQtyOrdered(); ?> 
-　金額：<?php echo $currency->formatTxt($price); ?>
+小計：<?php echo $currency->formatTxt($item->getRowTotalInclTax()); ?>
 
-
-<?php endforeach;?>
-　小計：<?php echo $currency->formatTxt($item->getRowTotalInclTax()); ?>
-<?php endif; ?>
-<?php
-/*
-$childs = $item->getChildrenItems();
-echo get_class($childs[0]) ."\n\n";
-
-$methods = get_class_methods(get_class($item));
-echo get_class($item) . "\n";
-foreach($methods as $method){echo $method . "\n";}
-*/
-?>
 
 <?php endforeach; ?>
 -----------------------------------------------------------

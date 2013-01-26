@@ -40,7 +40,9 @@
                 <?php $currentParentId = $pdfItem['itemId'] ?>
                 <tr nobr="true">
                     <?php
-                    	echo $this->getBundleItemRow($pdfItem, $pdfBundleItems[$currentParentId], $vertSpacing, $lineStyleOverride, $position++);
+                    	$h = $this->getBundleItemRow($pdfItem, $pdfBundleItems[$currentParentId], $vertSpacing, $lineStyleOverride, $position++);
+                    	error_log($h);
+                    	echo $h;
                     ?>
                 </tr>
             <?php endif; ?>
