@@ -27,19 +27,24 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+
+<!-- header_linksに移動
+<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+	<img width="140px" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+</a>
+<div class="quick-access">
+    <?php echo $this->getChildHtml('topSearch') ?>
+    <?php echo $this->getChildHtml('topLinks') ?>
+</div>
+-->
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_links')->toHtml(); ?>
+
+<?php if ($this->getIsHomePage()):?>
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_panel')->toHtml(); ?>
+<?php endif?>
+
 <div class="header-container">
     <div class="header">
-        <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-        <?php else:?>
-        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
-        <?php endif?>
-        <div class="quick-access">
-            <?php echo $this->getChildHtml('topSearch') ?>
-            <p class="welcome-msg"><?php echo $this->getWelcome() ?> <?php echo $this->getAdditionalHtml() ?></p>
-            <?php echo $this->getChildHtml('topLinks') ?>
-            <?php echo $this->getChildHtml('store_language') ?>
-        </div>
         <?php echo $this->getChildHtml('topContainer'); ?>
     </div>
 </div>

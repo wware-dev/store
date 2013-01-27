@@ -45,7 +45,9 @@
         <div class="limiter">
             <label><?php echo $this->__('Show') ?></label>
             <select onchange="setLocation(this.value)">
-            <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+	        <?php $wwareLimit = array(30=>30, 50=>50, 100=>100, 'all'=>__("All")); ?>
+	        <?php //foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+	        <?php foreach ($wwareLimit as  $_key=>$_limit): ?>
                 <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
                     <?php echo $_limit ?>
                 </option>
@@ -58,6 +60,7 @@
     </div>
 
     <?php if( $this->isExpanded() ): ?>
+    <?php //if( false ): ?>
     <div class="sorter">
         <?php if( $this->isEnabledViewSwitcher() ): ?>
         <p class="view-mode">
@@ -74,7 +77,7 @@
             <?php endif; ?>
         </p>
         <?php endif; ?>
-    
+ 
         <div class="sort-by">
             <label><?php echo $this->__('Sort By') ?></label>
             <select onchange="setLocation(this.value)">

@@ -1,0 +1,766 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <sales_email>
+            <groups>
+                <order>
+                    <fields>
+                        <attachpdf translate="label">
+                            <label>Attach Order as Pdf</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attachpdf>
+                    </fields>
+                </order>
+            </groups>
+        </sales_email>
+        <sales_pdf>
+            <groups>
+                <all translate="label comment">
+                    <label>PdfCustomiser by Fooman</label>
+                    <sort_order>1</sort_order>
+                    <comment><![CDATA[<br />
+                    <div class="box">
+                    <p>Please contact <a href="mailto:support@fooman.co.nz">Kristof</a> for support or if you require further customisations.</p>
+                    <p>Bitte kontaktieren Sie <a href="mailto:support@fooman.co.nz">Kristof</a> für Support und weitere Anpassungen.</p>
+                    </div>
+                    <script type="text/javascript">
+                    document.observe("dom:loaded", function() {
+
+                            var logoPlacement = Class.create();
+                            logoPlacement.prototype = {
+                                    initialize : function()
+                                    {
+                                        Event.observe($('sales_pdf_all_alllogoplacement'), 'change', this.changePlacement.bind(this));
+                                        this.changePlacement();
+
+                                    },
+                                    changePlacement: function(){
+
+                                        if($('sales_pdf_all_alllogoplacement').getValue() == 'manual'){
+                                            $('sales_pdf_all_alllogoheight').up().up().show();
+                                            $('sales_pdf_all_alllogowidth').up().up().show();
+                                            $('sales_pdf_all_alllogofromtop').up().up().show();
+                                            $('sales_pdf_all_alllogofromleft').up().up().show();
+                                        }else{
+                                            $('sales_pdf_all_alllogoheight').up().up().hide();
+                                            $('sales_pdf_all_alllogowidth').up().up().hide();
+                                            $('sales_pdf_all_alllogofromtop').up().up().hide();
+                                            $('sales_pdf_all_alllogofromleft').up().up().hide();
+
+                                        }
+
+                                    }
+                             }
+                            settings = new logoPlacement();
+                    });
+                    </script>
+
+                    ]]>
+                    </comment>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <alllogo translate="label">
+                            <label>Logo for the Pdf</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">pdf-printouts</upload_dir>
+                            <base_url type="media" scope_info="1">pdf-printouts</base_url>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alllogo>
+                        <alllogoplacement translate="label">
+                            <label>Placement of Logo</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_logoPlacementOptions</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alllogoplacement>
+                        <alllogowidth translate="label">
+                            <label>Logo Width</label>
+                            <comment>in millimeters</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alllogowidth>
+                        <alllogoheight translate="label">
+                            <label>Logo Height</label>
+                            <comment>in millimeters</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alllogoheight>
+                        <alllogofromleft translate="label">
+                            <label>Logo top-left Corner from the left</label>
+                            <comment>in millimeters</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alllogofromleft>
+                        <alllogofromtop translate="label">
+                            <label>Logo top-left Corner from the top</label>
+                            <comment>in millimeters</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alllogofromtop>
+                        <allbgimage translate="label">
+                            <label>Background Image for Pdf</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">pdf-printouts</upload_dir>
+                            <base_url type="media" scope_info="1">pdf-printouts</base_url>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allbgimage>
+                        <allbgimagefirstpageonly translate="label">
+                            <label>Display Background only on first page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allbgimagefirstpageonly>
+                        <allowneraddress translate="label">
+                            <label>Store Address</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowneraddress>
+                        <allfooter1 translate="label">
+                            <label>Footer Block 1</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allfooter1>
+                        <allfooter2 translate="label">
+                            <label>Footer Block 2</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allfooter2>
+                        <allfooter3 translate="label">
+                            <label>Footer Block 3</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allfooter3>
+                        <allfooter4 translate="label">
+                            <label>Footer Block 4</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allfooter4>
+                        <allrowtotaltaxinclusive translate="label">
+                            <label>Display Row Subtotal Including Tax</label>
+                            <comment>is only effective if Tax > Orders, Invoices, Creditmemos Display Settings > Prices is set to not display taxes</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allrowtotaltaxinclusive>
+                        <allonly1grandtotal translate="label">
+                            <label>Display only one Grand Total</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allonly1grandtotal>
+                        <displayboth translate="label">
+                            <label>Display Base and Order Currency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </displayboth>
+                        <allpagesize translate="label">
+                            <label>Page Size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_pagesizes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allpagesize>
+                        <allmargintop translate="label">
+                            <label>Top Margin</label>
+                            <comment>in milimeters</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allmargintop>
+                        <allmarginbottom translate="label">
+                            <label>Bottom Margin</label>
+                            <comment>in milimeters</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allmarginbottom>
+                        <allmarginsides translate="label">
+                            <label>Side Margins</label>
+                            <comment>in milimeters</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allmarginsides>
+                        <allfont translate="label">
+                            <label>Font</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_fonts</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allfont>
+                        <allcustomfont translate="label">
+                            <label>Upload Custom Font</label>
+                            <frontend_type>file</frontend_type>
+                            <upload_dir config="system/filesystem/media">pdf-printouts</upload_dir>
+                            <backend_model>pdfcustomiser/system_customfont</backend_model>
+                            <comment>Upload your font here (.ttf file extension).</comment>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allcustomfont>
+                        <allfontsize translate="label">
+                            <label>Base Font Size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_fontsizes</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allfontsize>                      
+                        <allpagenumbers translate="label">
+                            <label>Display Page Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allpagenumbers>                        
+                        <allqtyasint translate="label">
+                            <label>Display Quantity as full number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allqtyasint>
+                        <alltaxsummary translate="label">
+                            <label>Display detailed Tax Summary</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alltaxsummary>
+                        <alldisplayweight translate="label">
+                            <label>Display Total Weight</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>860</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alldisplayweight>
+                        <allweightunit translate="label">
+                            <label>Weight Unit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>865</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allweightunit>
+                        <allcustomcolumn translate="label">
+                            <label>Custom Column Attribute</label>
+                            <comment>Select up to 5 attributes.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>pdfcustomiser/system_productAttributes</source_model>
+                            <sort_order>870</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allcustomcolumn>
+                        <alldisplayemail translate="label">
+                            <label>Display Email Address</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>880</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alldisplayemail>
+                        <allbarcode translate="label">
+                            <label>Barcode Type</label>
+                            <comment>Please make sure the barcode type is appropriate for the content or the pdf generation might fail (Default: CODE 39 EXTENDED + CHECKSUM).</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_barcodes</source_model>
+                            <sort_order>885</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allbarcode>
+                        <allprintcomments translate="label">
+                            <label>Print Order History with Comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>890</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allprintcomments>
+                        <allsign translate="label">
+                            <label>Digitally Sign Pdf</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>900</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allsign>
+                        <allsigncertificate translate="label">
+                            <label>Signature</label>
+                            <frontend_type>textarea</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>1000</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allsigncertificate>
+                        <allsignpassword translate="label">
+                            <label>Password of Signature</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>1100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allsignpassword>
+                        <allnewwindow translate="label">
+                            <label>Display Pdf in New Window</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allnewwindow>
+                    </fields>
+                </all>
+                <totals>
+                    <label>Pdf Totals Sort Order</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <subtotal>
+                            <label>Subtotal</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </subtotal>
+                        <discount>
+                            <label>Discount</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </discount>
+                        <tax>
+                            <label>Tax</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tax>
+                        <shipping>
+                            <label>Shipping &amp; Handling</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping>
+                        <adjustment_positive>
+                            <label>Adjustment Refund</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </adjustment_positive>
+                        <adjustment_negative>
+                            <label>Adjustment Fee</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </adjustment_negative>
+                        <surcharge>
+                            <label>Surcharge</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </surcharge>
+                        <grand_total>
+                            <label>Grand Total</label>
+                            <backend_model>pdfcustomiser/backend_pdfTotal</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </grand_total>
+                    </fields>
+                </totals>
+                <order translate="label">
+                    <label>Order</label>
+                    <sort_order>50</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <ordertitle translate="label">
+                            <label>Order Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ordertitle>
+                        <orderaddresses translate="label">
+                            <label>Customer Addresses</label>
+                            <comment/>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_addressOptions</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </orderaddresses>
+                        <ordercolumns translate="label">
+                            <label>Columns</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>pdfcustomiser/system_columns</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ordercolumns>
+                        <ordercolumnssort translate="label">
+                            <label>Sort by Column</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_columnsSort</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ordercolumnssort>
+                        <ordercolumnwidths translate="label">
+                            <label>Columns Advanced</label>
+                            <comment/>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ordercolumnwidths>
+                        <ordercustom translate="label">
+                            <label>Custom Text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ordercustom>
+                    </fields>
+                </order>
+                <invoice translate="label">
+                    <sort_order>80</sort_order>
+                    <fields>
+                        <invoicetitle translate="label">
+                            <label>Invoice Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoicetitle>
+                        <invoicetaxnumber translate="label">
+                            <label>Tax Details</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoicetaxnumber>
+                        <invoiceaddresses translate="label">
+                            <label>Customer Addresses</label>
+                            <comment/>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_addressOptions</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoiceaddresses>
+                        <invoicedeliverydate translate="label">
+                            <label>Display Delivery Date</label>
+                            <comment/>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoicedeliverydate>
+                        <invoicecolumns translate="label">
+                            <label>Columns</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>pdfcustomiser/system_columns</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoicecolumns>
+                        <invoicecolumnssort translate="label">
+                            <label>Sort by Column</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_columnsSort</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoicecolumnssort>
+                        <invoicecolumnwidths translate="label">
+                            <label>Columns Advanced</label>
+                            <comment/>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoicecolumnwidths>
+                        <invoicecustom translate="label">
+                            <label>Custom Text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoicecustom>
+                        <invoiceintegratedlabels translate="label">
+                            <label>Use Integrated Labels</label>
+                            <comment/>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_labelOptions</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoiceintegratedlabels>
+                    </fields>
+                </invoice>
+                <shipment translate="label">
+                    <sort_order>90</sort_order>
+                    <fields>
+                        <shipmenttitle translate="label">
+                            <label>Shipment Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmenttitle>
+                        <shipmentuseorder translate="label">
+                            <label>Print Order as Packing Slip</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentuseorder>
+                        <shipmentaddresses translate="label">
+                            <label>Customer Addresses</label>
+                            <comment/>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_addressOptions</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentaddresses>
+                        <shipmentcolumns translate="label">
+                            <label>Columns</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>pdfcustomiser/system_columns</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentcolumns>
+                        <shipmentcolumnssort translate="label">
+                            <label>Sort by Column</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_columnsSort</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentcolumnssort>
+                        <shipmentcolumnwidths translate="label">
+                            <label>Columns Advanced</label>
+                            <comment/>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentcolumnwidths>
+                        <shipmentcustom translate="label">
+                            <label>Custom Text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentcustom>
+                        <shipmentintegratedlabels translate="label">
+                            <label>Use Integrated Labels</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_labelOptions</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentintegratedlabels>
+                    </fields>
+                </shipment>
+                <creditmemo translate="label">
+                    <sort_order>100</sort_order>
+                    <fields>
+                        <creditmemotitle translate="label">
+                            <label>Credit Memo Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </creditmemotitle>
+                        <creditmemoaddresses translate="label">
+                            <label>Customer Addresses</label>
+                            <comment/>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_addressOptions</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </creditmemoaddresses>
+                        <creditmemocolumns translate="label">
+                            <label>Columns</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>pdfcustomiser/system_columns</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </creditmemocolumns>
+                        <creditmemocolumnssort translate="label">
+                            <label>Sort by Column</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pdfcustomiser/system_columnsSort</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </creditmemocolumnssort>
+                        <creditmemocolumnwidths translate="label">
+                            <label>Columns Advanced</label>
+                            <comment/>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </creditmemocolumnwidths>
+                        <creditmemocustom translate="label">
+                            <label>Custom Text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </creditmemocustom>
+                    </fields>
+                </creditmemo>
+            </groups>
+        </sales_pdf>
+    </sections>
+</config>

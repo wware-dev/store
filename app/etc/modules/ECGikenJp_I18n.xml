@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ECGikenJp_I18n>
+            <active>true</active>
+            <codePool>community</codePool>
+        </ECGikenJp_I18n>
+    </modules>
+</config>
