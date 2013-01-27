@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+
+<config>
+
+    <modules>
+
+        <Wyomind_Orderseraser>
+
+            <version>3.1.2</version>
+
+        </Wyomind_Orderseraser>
+
+    </modules>
+
+    <admin>
+        <routers>
+            <orderseraser>
+                <use>admin</use>
+                <args>
+                    <module>Wyomind_Orderseraser</module>
+                    <frontName>orderseraser</frontName>
+                </args>
+            </orderseraser>
+        </routers>
+    </admin>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <sales>
+                            <children>
+                                <order>
+                                    <children>
+                                        <actions>
+                                            <children>
+                                                <delete translate="title">
+                                                    <title>Delete (Orders Eraser)</title>
+                                                </delete>
+                                            </children>		
+                                        </actions>											
+                                    </children>
+                                </order>
+                            </children>
+                        </sales>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+		
+    </adminhtml>   
+    <global>
+
+        <models>
+            <orderseraser>
+                <class>Wyomind_Orderseraser_Model</class>
+            </orderseraser>
+        </models>
+        <resources>
+            <orderseraser_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </orderseraser_write>
+            <orderseraser_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </orderseraser_read>
+        </resources>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Wyomind_Orderseraser_Block_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <orderseraser>
+                <class>Wyomind_Orderseraser_Helper</class>
+            </orderseraser>
+        </helpers>
+    </global>
+</config>
+
+
+
+         
+     
+       

@@ -35,6 +35,40 @@
     $_helper = $this->helper('catalog/output');
 ?>
 <?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.bxGallery.1.1.min.js'); ?>"></script>
+<link media="all" type="text/css" rel="stylesheet" href="<?php echo $this->getSkinUrl('css/jquery.bxGallery.1.1.css'); ?>">
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#bxgallery').bxGallery({
+		maxwidth: 450,
+		maxheight: 675,
+		thumbwidth: 84,
+		thumbplacement: 'bottom',
+		thumbcontainer: 450,
+		wrapperclass: 'outer',
+	});
+});
+</script>
+
+<?php
+//$methods = get_class_methods(get_class($this));
+//asort($methods);
+//var_dump($methods);exit;
+?>
+<p class="product-image">
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<ul id="bxgallery">
+<?php foreach ($this->getGalleryImages() as $_image): ?>
+<li><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(450, 675); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+</p>
+
+<!--
 <p class="product-image product-image-zoom">
     <?php
         $_img = '<img id="image" src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
@@ -76,3 +110,4 @@
     </ul>
 </div>
 <?php endif; ?>
+-->

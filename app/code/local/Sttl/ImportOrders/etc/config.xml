@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Silver Touch Technologies Limited.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.silvertouch.com/MagentoExtensions/LICENSE.txt
+ *
+ * @category   Sttl
+ * @package    Sttl_ImportOrders
+ * @copyright  Copyright (c) 2011 Silver Touch Technologies Limited. (http://www.silvertouch.com/MagentoExtensions)
+ * @license    http://www.silvertouch.com/MagentoExtensions/LICENSE.txt
+ */ 
+-->
+<config>
+    <modules>
+        <Sttl_ImportOrders>
+            <version>2.0.0</version>
+        </Sttl_ImportOrders>
+    </modules>
+
+    <global>
+        <models>
+            <importOrders>
+                <class>Sttl_ImportOrders_Model</class>                
+            </importOrders>            
+        </models>
+        <blocks>
+            <importOrders>
+                <class>Sttl_ImportOrders_Block</class>
+            </importOrders>    
+		</blocks>
+		<helpers>
+            <importOrders>
+                <class>Sttl_ImportOrders_Helper</class>
+            </importOrders>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <importOrders>
+                <use>admin</use>
+                <args>
+                    <module>Sttl_ImportOrders</module>
+                    <frontName>importorder</frontName>
+                </args>
+            </importOrders>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <menu>
+            <sales>
+                <children>
+                    <importOrders_import translate="title" module="importOrders">
+                        <title>SILVER Import Orders</title>
+                        <action>importOrders/import</action>
+                        <sort_order>1000</sort_order>
+                    </importOrders_import>
+                </children>
+            </sales>
+        </menu>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <all>
+							<title>Allow everything</title>
+						</all>
+                        <sales>
+                            <children>
+                                <importOrders_import>
+                                    <title>SILVER Import Orders</title>
+                                </importOrders_import>
+                            </children>
+                        </sales>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <layout>
+            <updates>
+                <importOrders>
+                    <file>importOrders.xml</file>
+                </importOrders>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<layout>
+
+    <adminhtml_sales_order_index>
+        <reference name="head">
+            <action method="addJs"><script>amasty/amoaction/grid.js</script></action>
+        </reference>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>amoaction_shipping</columnId>
+                <arguments module="amoaction" translate="header">
+                    <header>Shipping</header>
+                    <type>text</type>
+                    <renderer>amoaction/adminhtml_renderer_shipping</renderer>
+                    <filter>amoaction/adminhtml_renderer_shipping</filter>
+                </arguments>
+                <after>entity_id</after>
+            </action>
+        </reference>
+    </adminhtml_sales_order_index>
+
+    <adminhtml_sales_order_grid>
+        <reference name="head">
+            <action method="addJs"><script>amasty/amoaction/grid.js</script></action>
+        </reference>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>amoaction_shipping</columnId>
+                <arguments module="amoaction" translate="header">
+                    <header>Shipping</header>
+                    <type>text</type>
+                    <renderer>amoaction/adminhtml_renderer_shipping</renderer>
+                    <filter>amoaction/adminhtml_renderer_shipping</filter>
+                </arguments>
+                <after>entity_id</after>
+            </action>
+        </reference>
+    </adminhtml_sales_order_grid>
+
+    
+</layout>

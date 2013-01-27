@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * ECGikenJp_TakaoFont
+ *
+ * Copyright (c) 2011-2012, EC-GIKEN Inc.
+ * All rights reserved.
+-->
+<config>
+    <modules>
+        <ECGikenJp_TakaoFont>
+            <version>3.2.1.3</version>
+        </ECGikenJp_TakaoFont>
+    </modules>
+    <global>
+        <models>
+            <ecgjptakao>
+                <class>ECGikenJp_TakaoFont_Model</class>
+            </ecgjptakao>
+        </models>
+        <resources>
+            <ecgjptakao_setup>
+                <setup>
+                    <module>ECGikenJp_TakaoFont</module>
+                    <class>ECGikenJp_TakaoFont_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ecgjptakao_setup>
+            <ecgjptakao_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ecgjptakao_write>
+            <ecgjptakao_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ecgjptakao_read>
+        </resources>
+    </global>
+</config>

@@ -31,13 +31,31 @@
     <?php if (count($_options)): ?>
         <dl>
         <?php foreach ($_options as $_option): ?>
-            <?php if (!$_option->getSelections()): ?>
-                <?php continue; ?>
-            <?php endif; ?>
-            <?php echo $this->getOptionHtml($_option) ?>
+            <?php
+            	if (!$_option->getSelections()){
+                	continue;
+                }
+            ?>
+            <ul class="ww_productDetail_sku_list">
+	        <li>
+	        <img src="<?php echo Mage::getModel("catalog/product")->load($_option->_data["selections"][0]->_data["product_id"])->getImageUrl(); ?>">
+	        <label><?php echo $_option->_data["title"] ?></label>
+	        <?php $checked = "checked"; ?>
+            <?php foreach($_option->_data["selections"] as $selection): ?>
+	            <?php $data = $selection->_data; ?>
+			    <dd><input type="radio" name="bundle_option[<?php echo $data["option_id"]; ?>]" value="<?php echo $data["selection_id"];?>" <?php echo $checked; ?>>
+			    <label><?php echo $data["name"]; ?></label>
+			    <input type="hidden" name="bundle_option_qty[<?php echo $data["option_id"]; ?>]" value="1">
+			    </dd>
+			    <?php $checked = ""; ?>
+		    <?php endforeach ?>
+
+            <?php //getClassMethod($this,true); ?>
+            <?php //echo $this->getOptionHtml($_option); ?>
         <?php endforeach; ?>
         </dl>
     <?php else: ?>
         <p><?php echo $this->__('No options of this product are available.') ?></p>
     <?php endif; ?>
 <?php endif;?>
+<input type="submit"></input>

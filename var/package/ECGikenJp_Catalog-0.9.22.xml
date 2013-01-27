@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+    <name>ECGikenJp_Catalog</name>
+    <version>0.9.22</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/BSD-2-Clause">New BSD</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>In the backend, product information fields are only displayed in English.&#xD;
+If you used this extension, these fields can display in Japanese.&#xD;
+&#x30D0;&#x30C3;&#x30AF;&#x30A8;&#x30F3;&#x30C9;&#x306E;&#x5546;&#x54C1;&#x5C5E;&#x6027;&#x306E;&#x540D;&#x524D;&#x306F;&#x82F1;&#x8A9E;&#x3067;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F7F;&#x3048;&#x3070;&#x3053;&#x308C;&#x3089;&#x306E;&#x60C5;&#x5831;&#x304C;&#x65E5;&#x672C;&#x8A9E;&#x3067;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</summary>
+    <description>Magento did not translate Japanese to product information in the backend even if you used Japanese translate files.&#xD;
+You can display Japanese of product information in the backend when you installed this extension.&#xD;
+&#x30D0;&#x30C3;&#x30AF;&#x30A8;&#x30F3;&#x30C9;&#x306E;&#x5546;&#x54C1;&#x60C5;&#x5831;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x753B;&#x9762;&#x3067;&#x306F;&#x3001;&#x5168;&#x3066;&#x306E;&#x9805;&#x76EE;&#x306B;&#x3064;&#x3044;&#x3066;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x540D;&#x79F0;&#x3092;&#x5165;&#x529B;&#x3057;&#x76F4;&#x3055;&#x306A;&#x3044;&#x9650;&#x308A;&#x82F1;&#x8A9E;&#x3067;&#x9805;&#x76EE;&#x540D;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#xD;
+&#x3053;&#x308C;&#x306F;&#x3001;&#x65E5;&#x672C;&#x8A9E;&#x7FFB;&#x8A33;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x6E96;&#x5099;&#x3057;&#x3066;&#x3082;&#x89E3;&#x6C7A;&#x3055;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#xD;
+&#x672C;&#x30A8;&#x30AF;&#x30B9;&#x30C6;&#x30F3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x3001;&#x3053;&#x308C;&#x3089;&#x306E;&#x9805;&#x76EE;&#x540D;&#x3092;&#x65E5;&#x672C;&#x8A9E;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</description>
+    <notes>mjv $Revision: 344 $</notes>
+    <authors><author><name>ECGikenJp_Catalog</name><user>ecgiken</user><email>info@ec-giken.com</email></author></authors>
+    <date>2012-12-01</date>
+    <time>05:30:01</time>
+    <contents><target name="magecommunity"><dir name="ECGikenJp"><dir name="Catalog"><dir name="Model"><dir name="Resource"><file name="Setup.php" hash="a2e60a853a2034ddb08ee336c47c2d1a"/></dir></dir><dir name="etc"><file name="config.xml" hash="b9065c8f396dc9d55ff0728cc5afc491"/><file name="system.xml" hash="47e8dcd1001b9caba3655798f776ae73"/></dir><dir name="sql"><dir name="ecgjpcatalog_setup"><file name="install-0.1.0.php" hash="636e375b2385b3e7d942da9ee7a9de1d"/><file name="upgrade-0.9.4-0.9.5.php" hash="556f88b9fc0e44c154c82f4bc6a8489d"/><file name="upgrade-0.9.9-0.9.10.php" hash="4e404a1ef68161b046a070d4c0bb2187"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ECGikenJp_Catalog.xml" hash="3f44cf2caf0584f0da4c487561f70caa"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.17</min><max>6.0.0</max></php><package><name>ECGikenJp_JapanSpecific</name><channel>community</channel><min>0.9.22</min><max></max></package></required></dependencies>
+</package>

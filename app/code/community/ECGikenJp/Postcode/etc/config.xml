@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * ECGikenJp_Postcode
+ *
+ * Copyright (c) 2011, EC-GIKEN Inc.
+ * All rights reserved.
+-->
+<config>
+    <modules>
+        <ECGikenJp_Postcode>
+            <version>0.9.21</version>
+        </ECGikenJp_Postcode>
+    </modules>
+
+    <global>
+        <models>
+            <ecgjppostcode>
+                <class>ECGikenJp_Postcode_Model</class>
+                <resourceModel>ecgjppostcode_resource</resourceModel>
+            </ecgjppostcode>
+            <ecgjppostcode_resource>
+                <class>ECGikenJp_Postcode_Model_Resource</class>
+                <entities>
+                    <code7>
+                        <table>ecgjppostcode</table>
+                    </code7>
+                </entities>
+            </ecgjppostcode_resource>
+        </models>
+        <helpers>
+            <ecgjppostcode>
+                <class>ECGikenJp_Postcode_Helper</class>
+            </ecgjppostcode>
+        </helpers>
+        <resources>
+            <ecgjppostcode_setup>
+                <setup>
+                    <module>ECGikenJp_Postcode</module>
+                    <class>ECGikenJp_Postcode_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ecgjppostcode_setup>
+            <ecgjppostcode_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ecgjppostcode_write>
+            <ecgjppostcode_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ecgjppostcode_read>
+        </resources>
+    </global>
+    <frontend>
+        <routers>
+            <ecgjppostcode>
+                <use>standard</use>
+                <args>
+                    <module>ECGikenJp_Postcode</module>
+                    <frontName>ecgjppostcode</frontName>
+                </args>
+            </ecgjppostcode>
+        </routers>
+        <layout>
+            <updates>
+                <ecgjppostcode>
+                    <file>ecgjp/postcode.xml</file>
+                </ecgjppostcode>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <ecgjppostcode>
+                    <file>ecgjp/postcode.xml</file>
+                </ecgjppostcode>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

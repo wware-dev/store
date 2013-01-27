@@ -40,6 +40,7 @@ $canApplyMAP  = Mage::helper('catalog')->canApplyMsrp($_product);
 ?>
 <?php if ($_product->getCanShowPrice() !== false):?>
 <div class="price-box">
+<!--
     <p class="price-as-configured">
         <span class="price-label"><?php echo $this->helper('bundle')->__('Price as configured') ?>:</span>
         <?php if (!$this->getWithoutPrice()): ?>
@@ -103,6 +104,7 @@ $canApplyMAP  = Mage::helper('catalog')->canApplyMsrp($_product);
     </span>
     <?php endif ?>
     </p>
+-->
 </div>
 <?php endif; ?>
 <?php if($_product->isSaleable()): ?>

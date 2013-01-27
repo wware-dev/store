@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Licentia_Ecms</name>
+    <version>0.1.1</version>
+    <stability>stable</stability>
+    <license uri="http://joinup.ec.europa.eu/software/page/eupl/licence-eupl">European Union Public License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Enhances CMS page/blocks management </summary>
+    <description>Enhances CMS page/blocks management </description>
+    <notes>Enhances CMS page/blocks management </notes>
+    <authors><author><name>Bento Vilas Boas</name><user>licentia</user><email>info@licentia.pt</email></author></authors>
+    <date>2012-08-01</date>
+    <time>15:55:06</time>
+    <contents><target name="mageetc"><dir><dir name="modules"><file name="Licentia_Ecms.xml" hash="647f01a67cf1390b170e3e4fef0d868c"/></dir></dir></target><target name="magecommunity"><dir><dir name="Licentia"><dir name="Ecms"><dir name="Block"><dir name="Adminhtml"><dir name="Block"><file name="Grid.php" hash="2ebe134700bf11f6114c6b353c6efb91"/></dir><dir name="Page"><file name="Grid.php" hash="db92c2e0397bc0b0b442b03666d27c3e"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="e2d2b27e53e8f7ecf7b9a7e276309f65"/></dir><dir name="controllers"><dir name="Adminhtml"><dir name="Cms"><file name="BlockController.php" hash="e8483a19ed5c17384d2589b9336f550f"/><file name="PageController.php" hash="eefdd1433f9688994959f5a7f9ceb6ed"/></dir></dir></dir><dir name="etc"><file name="config.xml" hash="db831261aef88d3d65a03f1e8c3093c3"/></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="Licentia_Ecms.csv" hash="8e582c3f146c4d81ba343a61af48f012"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.1</min><max>6.0.0</max></php></required></dependencies>
+</package>
