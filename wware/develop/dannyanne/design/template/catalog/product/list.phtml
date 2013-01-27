@@ -31,6 +31,7 @@
  * @see Mage_Catalog_Block_Product_List
  */
 ?>
+<?php $isHome = Mage::getBlockSingleton('page/html_header')->getIsHomePage(); ?>
 
 <? //START ====== QuckView用JS ======= ?>
 <style type="text/css">
@@ -50,7 +51,9 @@
 .quickview-panel .qv-close-button {position: absolute; width:155px; bottom: 0px; right: 5px; background-color: #999;}
 </style>
 
-<!--<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>-->
+<?php if(!$isHome): ?>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<?php endif; ?>
 <script type="text/javascript" src="/store/js/fx.js"></script>
 <script>
 function qv_on(pid, imgurls, description){
@@ -234,9 +237,10 @@ function qv_changeimg(imgUrl, id){
         <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
     <?php endif; ?>
 
-    <div class="toolbar-bottom">
-        <?php echo $this->getToolbarHtml() ?>
-    </div>
+
+</div>
+<div class="toolbar-bottom">
+    <?php echo $this->getToolbarHtml() ?>
 </div>
 <?php endif; ?>
 
