@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* CSS Document */
+
+div#container {
+	margin:0 auto;
+	text-align:left;
+	width: 1000px;
+}
+div#header {
+	background:url("../images/common/headerBg.gif") repeat-x scroll left top transparent;
+	position:relative;
+	width:1000px;
+	margin: 0;
+}
+p#logo {
+	margin: 0;
+	padding: 6px 0 0;
+}
+div#header h1 {
+	height:40px;
+	left:252px;
+	position:absolute;
+	top:49px;
+}
+p#forShop {
+	height:20px;
+	left:253px;
+	position:absolute;
+	top:26px;
+}
+div#mainContentsArea {
+}
+div#leftContents {
+background:url("../images/common/sidebar/sidebarBg.gif") repeat-y scroll left bottom transparent;
+border-bottom:1px solid #EDEEE9;
+float:left;
+width:200px;
+}
+div#rightContents {
+	width:770px;
+	float: right;
+}
+div#footer {
+	background:url("../images/common/headerBg.gif") repeat-x scroll left top transparent;
+	height:67px;
+	position: relative;
+	width: 1000px;
+	float: left;
+	margin: 15px 0 0 0;
+}
+p#copyright {
+position:absolute;
+top:14px;
+}
+p.clsBtn {
+cursor:pointer;
+height:28px;
+position:absolute;
+right:0;
+top:0;
+width:65px;
+}
+hr {
+display:none;
+}

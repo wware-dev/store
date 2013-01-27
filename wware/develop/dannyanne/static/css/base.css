@@ -1,0 +1,142 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+color:#665e5e;
+font:12px/1.6 'Lucida Grande',Helvetica;
+text-align:center;
+}
+:first-child + html body {
+font-family:'ＭＳ Ｐゴシック';
+font-size:75%;
+}
+* html body {
+font-family:'ＭＳ Ｐゴシック';
+font-size:75%;
+}
+fieldset {
+border:1px solid #CCCCCC;
+}
+input, textarea {
+line-height:1.4;
+padding:0;
+vertical-align:middle;
+}
+input[type="checkbox"], input[type="radio"] {
+vertical-align:text-bottom;
+}
+input[type="submit"] {
+padding:0.1em;
+}
+select {
+padding:0;
+}
+* html input {
+padding:0.1em;
+}
+* html input.checkbox, * html input.radio {
+vertical-align:-0.3em;
+}
+* html input.submit {
+line-height:1.2;
+padding-top:0.2em;
+}
+* html select {
+vertical-align:-0.2em;
+}
+:first-child + html input {
+padding:0.1em;
+}
+:first-child + html input.submit {
+line-height:1.2;
+padding-top:0.2em;
+}
+:first-child + html select {
+vertical-align:-0.2em;
+}
+html:first-child input {
+padding:0.1em;
+}
+html:first-child input[type="checkbox"], html:first-child input[type="radio"] {
+vertical-align:middle;
+}
+html:first-child input[type="submit"] {
+padding:0.3em;
+}
+html:first-child select {
+padding:0.2em;
+}
+body:first-of-type input {
+padding:0.1em;
+}
+body:first-of-type input[type="checkbox"], body:first-of-type input[type="radio"] {
+vertical-align:text-top;
+}
+body:first-of-type input[type="submit"] {
+padding:0.3em 0.3em 0.2em;
+}
+html, body {
+height:100%;
+}
+.none, .close {
+display:none;
+}
+.normal, .open {
+visibility:visible;
+}
+a {
+color:#7e7e7e;
+cursor:pointer;
+text-decoration:underline;
+}
+a:link {
+color:#7e7e7e;
+text-decoration:underline;
+}
+a:visited {
+text-decoration:underline;
+}
+a:hover {
+	color:#553F28;
+	text-decoration:none;
+}
+a:focus {
+color:#000000;
+text-decoration:none;
+}
+a:active {
+color:#000000;
+text-decoration:underline;
+}
+.floatLeft {
+float:left;
+}
+.floatRight {
+float:right;
+}
+.clear {
+clear:both;
+}
+.clearfix:after {
+clear:both;
+content:".";
+display:block;
+height:0;
+line-height:0;
+visibility:hidden;
+}
+.clearfix {
+display:inline-block;
+}
+html[xmlns] .clearfix {
+display:block;
+}
+* html .clearfix {
+height:1%;
+}
+.emphasisOre {
+color:#FF6000;
+}
+.emphasisGre {
+color:#63A20D;
+}

@@ -1,0 +1,135 @@
+@charset "UTF-8";
+/* CSS Document */
+
+div#siteSearchBlock {
+background:url("../images/common/sidebar/siteSearchBlockBg.gif") no-repeat scroll left top transparent;
+height:70px;
+position:relative;
+width:200px;
+}
+div#siteSearchBlock fieldset {
+border:0 none;
+}
+div#siteSearchBlock fieldset legend {
+font-size:0;
+text-indent:-9999px;
+}
+div#siteSearchBlock fieldset input#searchGuide {
+height:16px;
+left:7px;
+padding:2px;
+position:absolute;
+top:27px;
+width:134px;
+}
+div#siteSearchBlock fieldset button {
+background:url("../images/common/sidebar/siteSearchBtn.gif") no-repeat scroll left top transparent;
+border:0 none;
+cursor:pointer;
+height:21px;
+position:absolute;
+right:9px;
+text-indent:-9999px;
+top:29px;
+width:39px;
+}
+div#bsiteSearchBlock {
+background:url("../images/common/sidebar/siteSearchBlockBgb.gif") no-repeat scroll left top transparent;
+height:70px;
+position:relative;
+width:350px;
+}
+div#bsiteSearchBlock fieldset {
+border:0 none;
+}
+div#bsiteSearchBlock fieldset legend {
+font-size:0;
+text-indent:-9999px;
+}
+div#bsiteSearchBlock fieldset input#searchGuide {
+left:7px;
+padding:2px;
+position:absolute;
+top:27px;
+width:280px;
+}
+div#bsiteSearchBlock fieldset button {
+background:url("../images/common/sidebar/siteSearchBtn.gif") no-repeat scroll left top transparent;
+border:0 none;
+cursor:pointer;
+height:21px;
+position:absolute;
+right:9px;
+text-indent:-9999px;
+top:29px;
+width:39px;
+}
+div#guideMenuBlock h2 {
+height:30px;
+width:200px;
+}
+div#guideMenuBlock h3 {
+height:22px;
+width:200px;
+}
+div#guideMenuBlock ul {
+background:none repeat scroll 0 0 #EFEDE7;
+padding:0 1px;
+}
+ul.lastMenuItem {
+border-bottom:1px solid #EFEDE7;
+}
+div#guideMenuBlock ul li {
+background:none repeat scroll 0 0 #f8f8f8;
+border-color:#f8f8f8 #FFFFFF #FFFFFF;
+border-right:1px solid #FFFFFF;
+border-style:solid;
+border-width:1px;
+line-height:1;
+margin-bottom:1px;
+}
+div#guideMenuBlock ul li a {
+background:url("../images/common/sidebar/undermostIcon.gif") no-repeat scroll 6px 0.7em transparent;
+color:#665e5e;
+display:block;
+padding:8px 0 8px 20px;
+text-decoration:none;
+}
+div#guideMenuBlock ul li a:hover, div#guideMenuBlock ul li.active a {
+background:url("../images/common/sidebar/undermostIcon_mOver.gif") no-repeat scroll 6px 0.7em #dddddd;
+color:#2d2d2d;
+text-decoration:none;
+}
+div#guideMenuBlock ul li.active a {
+font-weight:bold;
+}
+img.formNavi {
+margin-left:3px;
+}
+div#guideMenuBlock li.normal ul {
+display:none;
+}
+div#guideMenuBlock li.active ul {
+background:none repeat scroll 0 0 #f8f8f5;
+padding:8px 0 0;
+}
+div#guideMenuBlock li.active ul li {
+background:url("../images/common/linkIcon.gif") no-repeat scroll 13px 0.5em transparent;
+border:0 none;
+margin:0;
+padding:0 10px 8px 20px;
+}
+div#guideMenuBlock li.active ul li a {
+background:none repeat scroll 0 0 transparent;
+color:#665e5e;
+display:inline;
+font-weight:normal;
+line-height:1.2;
+padding:0;
+text-decoration:none;
+}
+div#guideMenuBlock li.active ul li a:hover {
+background:none repeat scroll 0 0 transparent;
+color:#343434;
+text-decoration:underline;
+}
