@@ -1,1 +1,7 @@
 .htaccess
+.mofgit
+app/etc/local.xml
+var/cache
+var/locks
+var/log
+var/session
