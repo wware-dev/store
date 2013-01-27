@@ -5,3 +5,4 @@ var/cache
 var/locks
 var/log
 var/session
+var/report
