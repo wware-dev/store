@@ -51,7 +51,8 @@
 
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $_columnCount = 4; //$this->getColumnCount(); ?>
-    <?php $i=0; $lastProductReleaseDate = ""; foreach ($_productCollection as $_product): ?>
+    <?php $i=0; $lastProductReleaseDate = ""; ?>
+    <?php foreach ($_productCollection as $_product): ?>
     <?php
     	$div_new = "";
     	$div_renew = "";

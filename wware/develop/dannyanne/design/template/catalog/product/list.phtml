@@ -32,6 +32,68 @@
  */
 ?>
 
+<style type="text/css">
+.quickvew-button { position:relative ; bottom:0px; left:0px; }
+.quickview-panel {	position: absolute; 
+					top:0px; left: 185px;
+					width: 0px;
+					border-right: solid 1px #eee;
+					background-color: #fff;
+					height:278px;
+					visibility:hidden;
+}
+
+.quickview-panel img { margin: 2px 2px; }
+.quickview-panel .qv-close-button {position: absolute; width:155px; bottom: 0px; right: 5px; background-color: #999;}
+</style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="/store/js/fx.js"></script>
+<script>
+function qv_on(pid, imgurls){
+	o = document.getElementById(pid);
+	o.style.visibility = "visible";
+	jQuery(o).animate({
+		'width': '165px'
+	},{
+		'complete': function(){
+			jQuery.get(	"/store/wware/getMediaGallery.php",
+				{imgs:imgurls, id:pid.replace("qv", "")},
+				function(data){
+					o.innerHTML = data;
+					o.innerHTML += '<a class="qv-close-button" href="javascript:void(0);" onclick="qv_off(this);">X</a>';
+				}
+			);
+		}
+	});
+
+//	o.style.width = "165px";
+	o.style.zIndex = 9999;
+	o.pid = pid;
+	
+}
+
+function qv_off(o){
+	o = document.getElementById(o.parentNode.id);
+	o.innerHTML = "";
+	jQuery(o).animate({
+		'width': '0px'
+	},{
+		'complete': function(){
+			o.style.visibility = "hidden";
+		}
+	});
+	
+
+}
+
+function qv_changeimg(imgUrl, id){
+	o = document.getElementById("image" + id);
+	o.setAttribute("src", imgUrl);
+}
+
+</script>
+
 <?php
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
@@ -81,11 +143,40 @@
     	$badge = "<ul>" . $div_new . $div_renew . $div_sale . $div_soldout . "</ul>";
 
 	?>
+		<?php if( $_REQUEST["type"] == "new" & $div_new == ""){ continue; } ?>
+		<?php if( $_REQUEST["type"] == "renew" & $div_renew == ""){ continue; } ?>
+
         <?php if ($i++%$_columnCount==0): ?>
         <ul class="products-grid">
         <?php endif ?>
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
-                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><?php echo $badge; ?><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(185,278); ?>" width="185" height="278" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                <a	
+                	href="<?php echo $_product->getProductUrl() ?>"
+                	title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+                	class="product-image"
+                >
+	                <?php echo $badge; ?>
+	                <div class="quickview-panel" id="qv<?php echo $_product->getId(); ?>"></div>
+	                <img
+	                	id="image<?php echo $_product->getId(); ?>"
+	                	src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(185,278); ?>"
+	                	width="185"
+	                	height="278"
+	                	alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+	                />
+	                
+                </a>
+                
+                <?php $p = Mage::getModel('catalog/product')->load($_product->getId()); ?>
+                <?php $imgurls = ""; ?>
+				<?php foreach ($p->getMediaGalleryImages() as $image): ?>
+					<?php $imgurls .= $image->getUrl() . ' '; ?>
+				<?php endforeach; ?>
+                
+	            <div class="quickvew-button">
+	                <a href="javascript:void(0);" onclick="qv_on('qv<?php echo $_product->getId(); ?>', <?php echo "'" . $imgurls . "'"; ?>);">QUICK VEW</a>
+	            </div>
+	            
                 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $this->__($_product->getName()), 'name') ?></a></h2>
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>

@@ -1,6 +1,8 @@
+*.DS_Store
 .htaccess
 .mofgit
 app/etc/local.xml
+app/etc/urls.ini
 var/cache
 var/locks
 var/log
