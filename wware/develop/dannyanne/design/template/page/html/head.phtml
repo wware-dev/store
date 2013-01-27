@@ -31,7 +31,6 @@
 <meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
 <link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
 <link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
-
 <!--[if lt IE 7]>
 <script type="text/javascript">
 //<![CDATA[
@@ -40,8 +39,8 @@
 //]]>
 </script>
 <![endif]-->
-<?php require $_SERVER["DOCUMENT_ROOT"] . '/store/wware/kint/Kint.class.php'; ?>
-<?php require $_SERVER["DOCUMENT_ROOT"] . '/store/wware/classmethod.php'; ?>
+<?php require '/var/www/html/store/wware/kint/Kint.class.php'; ?>
+<?php require '/var/www/html/store/wware/classmethod.php'; ?>
 <?php echo $this->getCssJsHtml() ?>
 <?php echo $this->getChildHtml() ?>
 <?php echo $this->helper('core/js')->getTranslatorScript() ?>
