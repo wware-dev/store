@@ -31,64 +31,25 @@
  * @see Mage_Catalog_Block_Layer_View
  */
 ?>
-
-<?php
-$isHome = Mage::getBlockSingleton('page/html_header')->getIsHomePage();
-
-$category = Mage::getModel('catalog/category'); 
-$tree = $category->getTreeModel(); 
-$tree->load();
-$ids = $tree->getCollection()->getAllIds(); 
-$arr = array();
-if ($ids){ 
-	foreach ($ids as $id){
-		$cat = Mage::getModel('catalog/category');
-		$cat->load($id);
-		if($cat->isInRootCategoryList()){
-			$isActive = $cat->$_data["is_active"];
-			if( ($isActive["is_active"] == 1) ){
-				$arr[$id] = $cat->getName();
-			}
-		}
-	} 
-}
-$arr = array_flip($arr);
-$cathtml .= '<dt class="category">CATEGORY</dt>';
-$cathtml .= '<dd><ol><li><a href="list">ALL ITEMS</a></li>';
-foreach($arr as $k => $v){
-	$catUrl = Mage::getModel("catalog/category")->load($v)->getUrl();
-	$catName = $k;
-	$cathtml .= '<li><a href="' . $catUrl . '">' . $this->__($catName) . '</a></li>';
-}
-$cathtml .= '</ol></dd>';
-
-?>
-
-
 <?php if($this->canShowBlock()): ?>
 <div class="block block-layered-nav">
-<!--
     <div class="block-title">
         <strong><span><?php echo $this->__('Shop By') ?></span></strong>
     </div>
--->
     <div class="block-content">
         <?php echo $this->getStateHtml() ?>
         <?php if ($this->getLayer()->getState()->getFilters()): ?>
             <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
         <?php endif; ?>
         <?php if($this->canShowOptions()): ?>
-            <p class="block-subtitle"><?php //echo $this->__('Shopping Options') ?></p>
+            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
             <dl id="narrow-by-list">
-            	<?php echo $cathtml; ?>
                 <?php $_filters = $this->getFilters() ?>
                 <?php foreach ($_filters as $_filter): ?>
-                	<?php if($this->__($_filter->getName()) == "カテゴリ"){continue;} ?>
-	                <?php if($_filter->getItemsCount()): ?>
-	                	<?php if($isHome){$urlReplace = "/store/list";}else{$urlReplace = "/store/";}?>
-	                    <dt class="<?php echo __("CSS_" . $_filter->getName()); ?>"><?php echo $_filter->getName(); ?></dt>
-	                    <dd><?php $html = $_filter->getHtml(); echo str_replace("/store/", $urlReplace, $html); ?></dd>
-	                <?php endif; ?>
+                <?php if($_filter->getItemsCount()): ?>
+                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd><?php echo $_filter->getHtml() ?></dd>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </dl>
             <script type="text/javascript">decorateDataList('narrow-by-list')</script>

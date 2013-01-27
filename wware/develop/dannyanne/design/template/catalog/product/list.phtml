@@ -31,101 +31,10 @@
  * @see Mage_Catalog_Block_Product_List
  */
 ?>
-<?php $isHome = Mage::getBlockSingleton('page/html_header')->getIsHomePage(); ?>
-
-<? //START ====== QuckView用JS ======= ?>
-<style type="text/css">
-.quickvew-button { position:relative ; bottom:0px; left:0px; }
-.quickview-panel {	position: absolute; 
-					top:0px; left: 185px;
-					width: 0px;
-					border-right: solid 1px #eee;
-					background-color: #fff;
-					height:278px;
-					visibility:hidden;
-}
-
-.quickview-panel img { margin: 2px 2px; }
-.quickview-panel .qv-description {}
-.quickview-panel .qv-detail-button {position: absolute; width:155px; bottom: 20px; right: 5px; background-color: #999;}
-.quickview-panel .qv-close-button {position: absolute; width:155px; bottom: 0px; right: 5px; background-color: #999;}
-</style>
-
-<?php if(!$isHome): ?>
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<?php endif; ?>
-<script type="text/javascript" src="/store/js/fx.js"></script>
-<script>
-function qv_on(pid, imgurls, description){
-	o = document.getElementById(pid);
-	o.innerHTML = "";
-	o.style.width = "0px";
-//	if(o.parentNode.parentNode.className == "item last"){
-	if(true){
-		o.style.left = "0px";
-		animTo = {'width': '165px', 'left': '-165px'}
-	}else{
-		animTo = {'width': '165px'}
-	}
-	o.style.visibility = "visible";
-	jQuery(o).animate(
-		animTo,
-		{
-			'complete': function(){
-			jQuery.post(	"/store/wware/getMediaGallery.php",
-				{imgs:imgurls, id:pid.replace("qv", "")},
-				function(data){
-					o.innerHTML  = data;
-					o.innerHTML += '<p class="qv-description">' + description + '</p>';
-					o.innerHTML += '<div class="qv-detail-button">More</div>';
-					o.innerHTML += '<a class="qv-close-button" href="javascript:void(0);" onclick="qv_off(this.parentNode.id);">X</a>';
-				}
-			);
-		}
-	});
-	o.style.zIndex = 9999;
-	o.pid = pid;	
-}
-
-function qv_off(pid){
-	o = document.getElementById(pid);
-//	if(o.parentNode.parentNode.className == "item last"){
-	if(true){
-		o.style.left = "-165px";
-		animTo = {'width': '0px', 'left': '0px'}
-	}else{
-		animTo = {'width': '0px'}
-	}
-
-	o.innerHTML = "";
-	jQuery(o).animate(
-		animTo,
-		{
-		'complete': function(){
-			o.style.visibility = "hidden";
-		}
-	});
-	
-
-}
-
-function qv_changeimg(imgUrl, id){
-	o = document.getElementById("image" + id);
-	o.setAttribute("src", imgUrl);
-}
-
-</script>
-<? //END ====== QuckView用JS ======= ?>
-
-
 <?php
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
-    
-    // NEW ARRIVALSかRE ARRIVALSページから呼び出された事を判別するためにページIDを取得
-    $pageId = Mage::getBlockSingleton('cms/page')->getPage()->getIdentifier();
 ?>
-
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
@@ -133,85 +42,62 @@ function qv_changeimg(imgUrl, id){
     <?php echo $this->getToolbarHtml() ?>
     <?php // List mode ?>
     <?php if($this->getMode()!='grid'): ?>
-    	<?php //リストモードはなしなのでざっくり削除 ?>
+    <?php $_iterator = 0; ?>
+    <ol class="products-list" id="products-list">
+    <?php foreach ($_productCollection as $_product): ?>
+        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+            <?php // Product Image ?>
+            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+            <?php // Product description ?>
+            <div class="product-shop">
+                <div class="f-fix">
+                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
+                    <?php if($_product->getRatingSummary()): ?>
+                    <?php echo $this->getReviewsSummaryHtml($_product) ?>
+                    <?php endif; ?>
+                    <?php echo $this->getPriceHtml($_product, true) ?>
+                    <?php if($_product->isSaleable()): ?>
+                        <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    <div class="desc std">
+                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+                    </div>
+                    <ul class="add-to-links">
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                        <?php endif; ?>
+                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
     <?php else: ?>
 
+    <?php // Grid Mode ?>
+
     <?php $_collectionSize = $_productCollection->count() ?>
-    <?php $_columnCount = 4; //$this->getColumnCount(); ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
     <?php $i=0; foreach ($_productCollection as $_product): ?>
-    <?php
-    	//NEW、再入荷、セール、売り切れのバッジ用divを商品属性を検証して生成する。
-    	$div_new = "";
-    	$div_renew = "";
-    	$div_sale = "";
-    	$div_soldout = "";
-    	$badge = "";
-    	
-    	if(!$_product->isAvailable()){$div_soldout = '<li class="badge-soldout"></li>';}
-    	
-    	$lastarrivaldateValue = Mage::getModel('catalog/product')->load($_product->getId())->getAttributeText('last_arrival_date');
-    	$lastarrivaldate = strtotime(date("Y/") . $lastarrivaldateValue);
-
-    	$releasedateValue = Mage::getModel('catalog/product')->load($_product->getId())->getAttributeText('release_date');
-    	$releasedate = strtotime(date("Y/") . $releasedateValue);
-
-
-    	if($lastarrivaldate != $releasedate){
-	    	if( (($lastarrivaldate + (60*60*24*7)) > time()) && $lastarrivaldate != ""){ $div_renew = '<div class="badge-rearrival"></li>'; }
-    	}else{
-	    	//if($_product->getData('news_to_date')){ $div_new = '<li class="badge-newarrival"></li>'; }
-	    	if( (($releasedate + (60*60*24*7)) > time()) && $lastarrivaldate != ""){ $div_new = '<li class="badge-newarrival"></li>'; }
-	    }
-
-    	if($_product->getData('special_to_date')){ $div_sale = '<li class="badge-sale"></li>'; }
-		    	
-
-    	$badge = "<ul>" . $div_new . $div_renew . $div_sale . $div_soldout . "</ul>";
-
-	?>
-		<?php if( $pageId == "newarrivals" & $div_new == ""){ continue; } ?>
-		<?php if( $pageId == "rearrivals" & $div_renew == ""){ continue; } ?>
-
         <?php if ($i++%$_columnCount==0): ?>
         <ul class="products-grid">
         <?php endif ?>
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
-                <a	
-                	href="<?php echo $_product->getProductUrl() ?>"
-                	title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
-                	class="product-image"
-                >
-	                <?php echo $badge; ?>
-	                <div class="quickview-panel" id="qv<?php echo $_product->getId(); ?>"></div>
-	                <img
-	                	id="image<?php echo $_product->getId(); ?>"
-	                	src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(185,278); ?>"
-	                	width="185"
-	                	height="278"
-	                	alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
-	                />
-	                
-                </a>
-                
-                <?php $p = Mage::getModel('catalog/product')->load($_product->getId()); ?>
-                <?php $imgurls = ""; ?>
-				<?php foreach ($p->getMediaGalleryImages() as $image): ?>
-					<?php $imgurls .= $image->getUrl() . ' '; ?>
-				<?php endforeach; ?>
-                <?php $shortDescription = $_product->getShortDescription(); ?>
-	            <div class="quickvew-button">
-	                <a	href="javascript:void(0);"
-	                	onclick="qv_on('qv<?php echo $_product->getId(); ?>', <?php echo "'" . $imgurls . "', '" . $shortDescription . "'"; ?> );"
-	                >QUICK VEW</a>
-	            </div>
-	            
-                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $this->__($_product->getName()), 'name') ?></a></h2>
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
                 <?php echo $this->getPriceHtml($_product, true) ?>
-
-<!--
                 <div class="actions">
                     <?php if($_product->isSaleable()): ?>
                         <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
@@ -227,8 +113,6 @@ function qv_changeimg(imgUrl, id){
                         <?php endif; ?>
                     </ul>
                 </div>
--->
-
             </li>
         <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
         </ul>
@@ -237,10 +121,8 @@ function qv_changeimg(imgUrl, id){
         <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
     <?php endif; ?>
 
-
-</div>
-<div class="toolbar-bottom">
-    <?php echo $this->getToolbarHtml() ?>
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
 </div>
 <?php endif; ?>
-
