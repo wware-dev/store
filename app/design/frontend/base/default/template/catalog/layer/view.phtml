@@ -31,10 +31,6 @@
  * @see Mage_Catalog_Block_Layer_View
  */
 ?>
-
-<?php $isHome = Mage::getBlockSingleton('page/html_header')->getIsHomePage(); ?>
-
-
 <?php if($this->canShowBlock()): ?>
 <div class="block block-layered-nav">
     <div class="block-title">
@@ -51,9 +47,8 @@
                 <?php $_filters = $this->getFilters() ?>
                 <?php foreach ($_filters as $_filter): ?>
                 <?php if($_filter->getItemsCount()): ?>
-                	<?php if($isHome){$urlReplace = "/store/list";}else{$urlReplace = "/store/";}?>
-                    <dt class="<?php echo __("CSS_" . $_filter->getName()); ?>"><?php echo $this->__( $_filter->getName() ); ?></dt>
-                    <dd><?php $html = $_filter->getHtml(); echo str_replace("/store/", $urlReplace, $html); ?></dd>
+                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd><?php echo $_filter->getHtml() ?></dd>
                 <?php endif; ?>
                 <?php endforeach; ?>
             </dl>

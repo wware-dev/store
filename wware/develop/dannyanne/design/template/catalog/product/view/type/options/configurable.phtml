@@ -29,12 +29,7 @@
 $_product    = $this->getProduct();
 $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
 ?>
-
-<?php foreach($_attributes as $_attribute){ $attr[] = $_attribute->getAttributeId(); } ?>
-
-<?php //if ($_product->isSaleable() && count($_attributes)):?>
-<?php if (count($_attributes)):?>
-<!--
+<?php if ($_product->isSaleable() && count($_attributes)):?>
     <dl>
     <?php foreach($_attributes as $_attribute): ?>
         <dt><label class="required"><em>*</em><?php echo $_attribute->getLabel() ?></label></dt>
@@ -47,85 +42,7 @@ $_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
         </dd>
     <?php endforeach; ?>
     </dl>
--->
     <script type="text/javascript">
         var spConfig = new Product.Config(<?php echo $this->getJsonConfig() ?>);
     </script>
-    
-    <script type="text/javascript">
-    /*
-	function productAddToCartWithAttribute(colorId, sizeId){
-		alert("buy! " + colorId + "/" + sizeId);
-		productAddToCartForm.submit(this);
-	}
-	*/
-	</script>
-
-<ul class="ww_productDetail_sku_list">
-<?php
-$buttonTitle = $this->__('Add to Cart');
-
-$conf = Mage::getModel('catalog/product_type_configurable')->setProduct($_product);
-$col = $conf->getUsedProductCollection()->addAttributeToSelect('*')->addFilterByRequiredOptions();
-foreach($col as $simple_product){
-	$colorId = $simple_product->_data["color"];
-	$colorName = $simple_product->getAttributeText("color");
-	$sizeId = $simple_product->_data["size"];
-	$sizeName = $simple_product->getAttributeText("size");
-
-
-	$addToCartUrl = $this->getSubmitUrl($_product) . "?super_attribute[92]=" . $simple_product->getColor() . "&super_attribute[146]=" . $simple_product->getSize();
-	$productAlertUrl = "/store/index.php/productalert/add/stock/product_id/" . $simple_product->getId() . "/uenc/" . base64_encode("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) . "/";
-
-	$simpleImgUrl = $simple_product->getImageUrl();
-	$mySku = array(	"size" => $sizeName,
-					"addCartUrl" => $addToCartUrl,
-					"productAlertUrl" => $productAlertUrl,
-					"imageUrl" => $simpleImgUrl,
-					"isSalable" => $simple_product->isSaleable(),
-				);
-
-	$myProductData[$colorName][] = $mySku;
-}
-?>
-
-<?php foreach($myProductData as $myColor => $myProduct): ?>
-	<?php
-		foreach ($myProduct as $key => $row) { $sort_key[$key] = $row["size"]; }
-		array_multisort( $sort_key, SORT_DESC, $myProduct );
-	?>
-	<li>
-		<img src="<?php echo $myProduct[0]["imageUrl"]; ?>">
-		<h2><?php echo $myColor; ?></h2>
-
-		<?php foreach($myProduct as $mySku):?>
-		
-			<?php if($mySku["isSalable"]): ?>
-		
-				<h3><?php echo $mySku["size"] . "/在庫あり"; ?></h3>
-				<a href="<?php echo $mySku["addCartUrl"]; ?>" class="cart">カートに入れる</a>
-			
-			<?php else: ?>
-		
-				<h3><?php echo $mySku["size"] . "/在庫なし"; ?></h3>
-				<a href="<?php echo $mySku["productAlertUrl"]; ?>" class="request">再入荷のお知らせ</a>
-			<?php endif; ?>
-		<?php endforeach; ?>
-		
-	</li>
-<?php endforeach; ?>
-
-
-</ul>
-
 <?php endif;?>
-
-<?php
-function getClassMethods($o){
-	$methods = get_class_methods(get_class($o));
-	asort($methods);
-	error_log(print_r($methods, true));
-	var_dump($methods);
-	return $methods;
-}
-?>
