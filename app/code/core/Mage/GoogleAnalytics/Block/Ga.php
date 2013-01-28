@@ -133,7 +133,8 @@ _gaq.push(['_trackPageview'{$optPageURL}]);
                     $order->getIncrementId(),
                     $this->jsQuoteEscape($item->getSku()), $this->jsQuoteEscape($item->getName()),
                     null, // there is no "category" defined for the order item
-                    $item->getBasePrice(), $item->getQtyOrdered()
+                    $item->getBasePrice(),
+                    $item->getQtyOrdered()
                 );
             }
             $result[] = "_gaq.push(['_trackTrans']);";
