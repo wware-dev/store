@@ -48,7 +48,7 @@ function mjvValidationGetXmlHttpRequest() {
 var configEmailValidationStrictMode = false;
 var xhrValidation = mjvValidationGetXmlHttpRequest();
 if (xhrValidation) {
-    xhrValidation.open("GET", "%INSTALL_DIR%ecgjpl10n/config/strict/", false);
+    xhrValidation.open("GET", "/store/ecgjpl10n/config/strict/", false);
     xhrValidation.send(null);
     if (xhrValidation.responseText == '1') {
         configEmailValidationStrictMode = true;

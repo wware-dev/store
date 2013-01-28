@@ -129,6 +129,7 @@ function qv_changeimg(imgUrl, id){
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
+
 <div class="category-products">
     <?php echo $this->getToolbarHtml() ?>
     <?php // List mode ?>
@@ -138,7 +139,8 @@ function qv_changeimg(imgUrl, id){
 
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $_columnCount = 4; //$this->getColumnCount(); ?>
-    <?php $i=0; foreach ($_productCollection as $_product): ?>
+    <?php $i=0;?>
+    <?php foreach ($_productCollection as $_product): ?>
     <?php
     	//NEW、再入荷、セール、売り切れのバッジ用divを商品属性を検証して生成する。
     	$div_new = "";
@@ -152,15 +154,12 @@ function qv_changeimg(imgUrl, id){
     	$lastarrivaldateValue = Mage::getModel('catalog/product')->load($_product->getId())->getAttributeText('last_arrival_date');
     	$lastarrivaldate = strtotime(date("Y/") . $lastarrivaldateValue);
 
-    	$releasedateValue = Mage::getModel('catalog/product')->load($_product->getId())->getAttributeText('release_date');
-    	$releasedate = strtotime(date("Y/") . $releasedateValue);
-
-
-    	if($lastarrivaldate != $releasedate){
+    	$newfromdate = strtotime($_product->getData('news_from_date'));
+    	$newtodate = strtotime($_product->getData('news_to_date'));
+    	if($lastarrivaldate != $newfromdate){
 	    	if( (($lastarrivaldate + (60*60*24*7)) > time()) && $lastarrivaldate != ""){ $div_renew = '<div class="badge-rearrival"></li>'; }
     	}else{
-	    	//if($_product->getData('news_to_date')){ $div_new = '<li class="badge-newarrival"></li>'; }
-	    	if( (($releasedate + (60*60*24*7)) > time()) && $lastarrivaldate != ""){ $div_new = '<li class="badge-newarrival"></li>'; }
+	    	if( $_product->getData('news_to_date') ){ $div_new = '<li class="badge-newarrival"></li>'; }
 	    }
 
     	if($_product->getData('special_to_date')){ $div_sale = '<li class="badge-sale"></li>'; }
@@ -169,7 +168,7 @@ function qv_changeimg(imgUrl, id){
     	$badge = "<ul>" . $div_new . $div_renew . $div_sale . $div_soldout . "</ul>";
 
 	?>
-		<?php if( $pageId == "newarrivals" & $div_new == ""){ continue; } ?>
+		<?php //if( $pageId == "newarrivals" & $div_new == ""){ continue; } ?>
 		<?php if( $pageId == "rearrivals" & $div_renew == ""){ continue; } ?>
 
         <?php if ($i++%$_columnCount==0): ?>
@@ -236,8 +235,6 @@ function qv_changeimg(imgUrl, id){
         <?php endforeach ?>
         <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
     <?php endif; ?>
-
-
 </div>
 <div class="toolbar-bottom">
     <?php echo $this->getToolbarHtml() ?>
