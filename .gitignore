@@ -8,3 +8,4 @@ var/locks
 var/log
 var/session
 var/report
+media/catalog/product/cache
