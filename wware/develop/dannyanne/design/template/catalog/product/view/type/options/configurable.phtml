@@ -74,7 +74,7 @@ foreach($col as $simple_product){
 	$sizeName = $simple_product->getAttributeText("size");
 
 
-	$addToCartUrl = $this->getSubmitUrl($_product) . "?super_attribute[92]=" . $simple_product->getColor() . "&super_attribute[146]=" . $simple_product->getSize();
+	$addToCartUrl = Mage::helper('checkout/cart')->getAddUrl($_product) . "?super_attribute[92]=" . $simple_product->getColor() . "&super_attribute[146]=" . $simple_product->getSize();
 	$productAlertUrl = "/store/index.php/productalert/add/stock/product_id/" . $simple_product->getId() . "/uenc/" . base64_encode("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) . "/";
 
 	$simpleImgUrl = $simple_product->getImageUrl();
@@ -104,7 +104,6 @@ foreach($col as $simple_product){
 		
 				<h3><?php echo $mySku["size"] . "/在庫あり"; ?></h3>
 				<a href="<?php echo $mySku["addCartUrl"]; ?>" class="cart">カートに入れる</a>
-			
 			<?php else: ?>
 		
 				<h3><?php echo $mySku["size"] . "/在庫なし"; ?></h3>

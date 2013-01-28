@@ -76,4 +76,23 @@
             </template>
         </parameters>
     </custom_listing_specials>
+    <custom_listing_dropdowned type="custom_listing/dropdowned" translate="name description">
+        <name>Dropdowned</name>
+        <description>ドロップダウン属性が設定されている商品を絞り込む</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <template translate="label">
+                <label>Template</label>
+                <visible>1</visible>
+                <type>select</type>
+                <value>catalog/product/list.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>catalog/product/list.phtml</value>
+                        <label>Catalog Product List Template</label>
+                    </default>
+                </values>
+            </template>
+        </parameters>
+    </custom_listing_dropdowned>
 </widgets>
