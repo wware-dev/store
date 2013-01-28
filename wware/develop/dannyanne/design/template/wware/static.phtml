@@ -1,0 +1,14 @@
+<?php
+
+
+if($_REQUEST["page"] != ""){
+	$skinBaseDir = Mage::getSingleton('core/design_package')->getSkinBaseDir() . "/static/";
+	$filepath = $skinBaseDir . $_REQUEST["page"] . ".html";
+	$html = file_get_contents($filepath);
+	$html = str_replace('"./', '"' . $this->getSkinUrl() . "static/", $html);
+	echo $html;
+}
+
+
+
+?>

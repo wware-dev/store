@@ -131,7 +131,9 @@ function qv_changeimg(imgUrl, id){
 <?php else: ?>
 
 <div class="category-products">
+	<?php if( !$this->_customlistingToolbarDisable ): ?>
     <?php echo $this->getToolbarHtml() ?>
+    <?php endif; ?>
     <?php // List mode ?>
     <?php if($this->getMode()!='grid'): ?>
     	<?php //リストモードはなしなのでざっくり削除 ?>
@@ -237,7 +239,9 @@ function qv_changeimg(imgUrl, id){
     <?php endif; ?>
 </div>
 <div class="toolbar-bottom">
+	<?php if( !$this->_customlistingToolbarDisable ): ?>
     <?php echo $this->getToolbarHtml() ?>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 
