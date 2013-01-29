@@ -62,7 +62,6 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 		$mageSimpleSKU['size']						= substr($v["サイズ"], 2);
 		$mageSimpleSKU['color']						= substr($v["色"], 3);
 		$mageSimpleSKU['url_key']					= $mageSimpleSKU['sku'];
-		$mageSimpleSKU['release_date']				= NULL;
 		$mageSimpleSKU['has_options']				= "0";
 		$mageSimpleSKU['required_options']			= "0";
 		$mageSimpleSKU['status']					= "1";
@@ -93,7 +92,6 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 		$mageConfigSKU1['size']						= NULL;
 		$mageConfigSKU1['color']					= NULL;
 		$mageConfigSKU1['url_key']					= $mageConfigSKU1['sku'];
-		$mageConfigSKU1['release_date']				= NULL;
 		$mageConfigSKU1['has_options']				= "1";
 		$mageConfigSKU1['required_options']			= "1";
 		$mageConfigSKU1['status']					= "1";
@@ -120,7 +118,6 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 		$mageConfigSKU2['size']						= NULL;
 		$mageConfigSKU2['color']					= NULL;
 		$mageConfigSKU2['url_key']					= $mageConfigSKU2['sku'];
-		$mageConfigSKU1['release_date']				= NULL;
 		$mageConfigSKU2['has_options']				= "1";
 		$mageConfigSKU2['required_options']			= "1";
 		$mageConfigSKU2['status']					= "1";

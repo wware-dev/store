@@ -7,28 +7,24 @@ div#container {
 	width: 1000px;
 }
 div#header {
-	background:url("../images/common/headerBg.gif") repeat-x scroll left top transparent;
 	position:relative;
 	width:1000px;
 	margin: 0;
+	padding:20px 0;
 }
 p#logo {
 	margin: 0;
 	padding: 6px 0 0;
 }
 div#header h1 {
-	height:40px;
-	left:252px;
-	position:absolute;
-	top:49px;
+	float:left;
 }
 p#forShop {
-	height:20px;
-	left:253px;
-	position:absolute;
-	top:26px;
+	float:left;
+	margin:15px 0 0;
 }
 div#mainContentsArea {
+	clear: both;
 }
 div#leftContents {
 background:url("../images/common/sidebar/sidebarBg.gif") repeat-y scroll left bottom transparent;
