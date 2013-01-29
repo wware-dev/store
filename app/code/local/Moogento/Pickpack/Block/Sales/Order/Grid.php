@@ -10,7 +10,7 @@ class Moogento_Pickpack_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Sale
 	protected function _prepareMassaction()
 	{
 		parent::_prepareMassaction();
-/*		
+		
 		$this->getMassactionBlock()->addItem('seperator1', array(
 		     'label'=> Mage::helper('sales')->__('---------------'),
 		     'url'  => '',
@@ -36,13 +36,13 @@ class Moogento_Pickpack_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Sale
 		     'label'=> Mage::helper('sales')->__('PDF Order-separated Pick List'),
 		     'url'  => $this->getUrl('pickpack/sales_order/pick'),
 		));
-*/		
+	
 		$this->getMassactionBlock()->addItem('pdfenpick_order', array(
 //		     'label'=> Mage::helper('sales')->__('PDF Order-combined Pick List'),
 		     'label'=> Mage::helper('sales')->__('ピッキングリスト印刷'),
 		     'url'  => $this->getUrl('pickpack/sales_order/enpick'),
 		));	
-/*		
+		
 		$this->getMassactionBlock()->addItem('pdfstock_order', array(
 		     'label'=> Mage::helper('sales')->__('PDF Out-of-stock List'),
 		     'url'  => $this->getUrl('pickpack/sales_order/stock'),
@@ -62,7 +62,7 @@ class Moogento_Pickpack_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Sale
 		     'label'=> Mage::helper('sales')->__('CSV Order-separated Pick List'),
 		     'url'  => $this->getUrl('pickpack/sales_order/pickcsv'),
 			));
-*/			
+			
 		// $this->getMassactionBlock()->addItem('seperator2', array(
 		// 	     'label'=> Mage::helper('sales')->__('---------------'),
 		// 	     'url'  => '',
